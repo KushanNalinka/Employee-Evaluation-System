@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import image1 from '../assets/images/loginbackground.5ad1adb02f73f4ac865e.webp';
-import image2 from '../assets/images/cdplc_logo.png';
+import image1 from "../assets/images/loginbackground.5ad1adb02f73f4ac865e.webp";
+import image2 from "../assets/images/cdplc_logo.png";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -21,9 +21,9 @@ const Login = () => {
       className="h-screen bg-cover bg-center flex items-end justify-start p-10"
       style={{ backgroundImage: `url(${image1})` }}
     >
-      <div className="w-96 p-6 bg-white rounded-lg shadow-md mb-10 ml-10">
-        <div className="text-center">
-          <img src={image2} alt="Logo" className="w-16 mx-auto mb-4" />
+      <div className="w-96 p-6 bg-white bg-opacity-80 backdrop-blur-lg rounded-lg shadow-md mb-10 ml-10">
+        <div className="text-center mb-16">
+        <img src={image2} alt="Logo" className="w-64 mx-auto mb-4" />
           <h1 className="text-2xl font-bold mb-6">Sign-In</h1>
         </div>
         <input
@@ -52,8 +52,6 @@ const Login = () => {
       </div>
     </div>
   );
-  
-  
 };
 
 export default Login;
