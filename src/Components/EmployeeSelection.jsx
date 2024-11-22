@@ -55,8 +55,9 @@ const EmployeeSelection = () => {
             Evaluating Employee:{" "}
             <span className="font-bold">0002014 - Daminda P.H.S.</span>
           </h2>
-          <h3 className="text-green-600 font-semibold mb-4">
-            Current Evaluation Status - Pending
+          <h3 className="text-xl font-semibold text-blue-700 mb-2">
+            Current Evaluation Status -{" "}
+            <span className="text-green-600">Pending</span>
           </h3>
           <div className="grid grid-cols-1 gap-4">
             {/* Select an Employee */}
@@ -113,6 +114,15 @@ const EmployeeSelection = () => {
                 type="file"
                 className="block w-full text-sm text-gray-700 border border-gray-300 rounded-lg p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500"
               />
+            </div>
+            {/* Buttons */}
+            <div className="flex gap-2">
+              <button className="bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600">
+                Save Data
+              </button>
+              <button className="bg-red-500 text-white px-4 py-2 rounded shadow hover:bg-red-600">
+                Reset
+              </button>
             </div>
           </div>
         </div>
