@@ -1,6 +1,47 @@
-import React from 'react';
 
-const HRAspectsModal = ({ closePopup }) => (
+import React, { useState } from "react";
+
+const trainingData = [
+    { id: 14, year: 2005, month: "January", course: "105042 - STRATEGIC MANAGEMENT & BUDGETARY CONTROL", status: "Completed", skill: "-" },
+    { id: 15, year: 2005, month: "January", course: "105010 - LEADERSHIP SKILLS", status: "Completed", skill: "-" },
+    { id: 16, year: 2004, month: "April", course: "107003 - FIRE FIGHTING & FIRE PREVENTION", status: "Not Completed", skill: "-" },
+    { id: 17, year: 2004, month: "April", course: "105012 - MANAGEMENT DEVELOPMENT FOR ENGINEERS/MANAGERS", status: "Completed", skill: "-" },
+    { id: 18, year: 2004, month: "August", course: "103001 - ADVANCED ENGLISH", status: "Completed", skill: "-" },
+    { id: 19, year: 2004, month: "January", course: "105032 - INDUSTRIAL RELATIONS", status: "Completed", skill: "-" },
+    { id: 20, year: 2002, month: "August", course: "202063 - BEATING STRESS, TENSION, AND THE BLUES", status: "Completed", skill: "-" },
+    { id: 21, year: 2002, month: "March", course: "202004 - CHANGE OF ATTITUDES", status: "Completed", skill: "-" },
+    { id: 22, year: 2002, month: "January", course: "202003 - ISO AWARENESS PROGRAMME", status: "Completed", skill: "-" },
+  ];
+
+  
+
+const HRAspectsModal = ({ closePopup }) =>{ 
+    // Define state inside the component
+  const [marks, setMarks] = useState({
+    achievements: 0,
+    people: 0,
+    managerial: 0,
+    adaptive: 0,
+  });
+
+  const calculateTotal = () => {
+    return (
+      marks.achievements +
+      marks.people +
+      marks.managerial +
+      marks.adaptive
+    );
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setMarks((prev) => ({
+      ...prev,
+      [name]: parseInt(value) || 0,
+    }));
+  };
+    
+  return  (
   <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
     <div className="bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-4xl overflow-y-auto max-h-[90vh]">
       <h2 className="text-xl font-bold mb-6 text-center">HR Aspects Popup</h2>
@@ -159,50 +200,75 @@ const HRAspectsModal = ({ closePopup }) => (
       {/* New Sections */}
       <div className="space-y-6">
         {/* Evaluation - Performance Criteria Section */}
-        <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-          <h2 className="text-lg font-bold mb-4">
+        {/* Evaluation - Performance Criteria Section */}
+      <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+        <div className="flex justify-between items-center">
+          <h2 className="text-lg font-bold">
             (E). EVALUATION - PERFORMANCE CRITERIA (To be evaluated by the Section)
           </h2>
-          <div className="space-y-4">
-            <div className="grid grid-cols-4 gap-4">
-              <div>
-                <label className="block font-bold mb-1">Achievements Orientation</label>
-                <input
-                  type="number"
-                  className="w-full border border-gray-300 rounded p-2"
-                  defaultValue={0}
-                />
-              </div>
-              <div>
-                <label className="block font-bold mb-1">People Orientation</label>
-                <input
-                  type="number"
-                  className="w-full border border-gray-300 rounded p-2"
-                  defaultValue={0}
-                />
-              </div>
-              <div>
-                <label className="block font-bold mb-1">Managerial Orientation</label>
-                <input
-                  type="number"
-                  className="w-full border border-gray-300 rounded p-2"
-                  defaultValue={0}
-                />
-              </div>
-              <div>
-                <label className="block font-bold mb-1">Adaptive Orientation</label>
-                <input
-                  type="number"
-                  className="w-full border border-gray-300 rounded p-2"
-                  defaultValue={0}
-                />
-              </div>
+          <button className="px-4 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-600">
+            Increment Allocation
+          </button>
+        </div>
+        <div className="space-y-4 mt-4">
+            {/* List of criteria */}
+          <ul className="list-disc pl-6 space-y-2">
+            <li>A. ACHIEVEMENT ORIENTATION</li>
+            <li>B. PEOPLE ORIENTATION</li>
+            <li>C. MANAGERIAL ORIENTATION</li>
+            <li>D. ADAPTIVE ORIENTATION</li>
+          </ul>
+
+          {/* Input fields for marks */}
+          <div className="grid grid-cols-4 gap-4">
+            <div>
+              <label className="block font-bold mb-1">Achievements Orientation</label>
+              <input
+                type="number"
+                name="achievements"
+                value={marks.achievements}
+                onChange={handleInputChange}
+                className="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              />
             </div>
-            <div className="text-right font-bold text-blue-600">
-              Total Marks (Out of 100): 0
+            <div>
+              <label className="block font-bold mb-1">People Orientation</label>
+              <input
+                type="number"
+                name="people"
+                value={marks.people}
+                onChange={handleInputChange}
+                className="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              />
+            </div>
+            <div>
+              <label className="block font-bold mb-1">Managerial Orientation</label>
+              <input
+                type="number"
+                name="managerial"
+                value={marks.managerial}
+                onChange={handleInputChange}
+                className="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              />
+            </div>
+            <div>
+              <label className="block font-bold mb-1">Adaptive Orientation</label>
+              <input
+                type="number"
+                name="adaptive"
+                value={marks.adaptive}
+                onChange={handleInputChange}
+                className="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              />
             </div>
           </div>
+          <div className="text-right font-bold text-blue-600">
+            Total Marks (Out of 100): {calculateTotal()}
+          </div>
         </div>
+      </div>
+       
+
 
         {/* Evaluation discussed with the Employee Section */}
         <div className="bg-gray-100 p-6 rounded-lg shadow-md">
@@ -454,6 +520,103 @@ const HRAspectsModal = ({ closePopup }) => (
       </div>
 
 
+      <div className="p-8 bg-gray-100">
+      <div className="bg-white p-6 rounded-lg shadow-md">
+        <h2 className="text-lg font-bold mb-4">Training Attended</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full table-auto border-collapse border border-gray-300">
+            <thead className="bg-gray-200">
+              <tr>
+                <th className="border border-gray-300 px-4 py-2">#</th>
+                <th className="border border-gray-300 px-4 py-2">Year</th>
+                <th className="border border-gray-300 px-4 py-2">Month</th>
+                <th className="border border-gray-300 px-4 py-2">Course Name</th>
+                <th className="border border-gray-300 px-4 py-2">Status</th>
+                <th className="border border-gray-300 px-4 py-2">Skill</th>
+              </tr>
+            </thead>
+            <tbody>
+              {trainingData.map((row) => (
+                <tr key={row.id} className={`${row.status === "Not Completed" ? "bg-red-100" : ""}`}>
+                  <td className="border border-gray-300 px-4 py-2 text-center">{row.id}</td>
+                  <td className="border border-gray-300 px-4 py-2 text-center">{row.year}</td>
+                  <td className="border border-gray-300 px-4 py-2 text-center">{row.month}</td>
+                  <td className="border border-gray-300 px-4 py-2">{row.course}</td>
+                  <td
+                    className={`border border-gray-300 px-4 py-2 text-center ${
+                      row.status === "Not Completed" ? "text-red-600 font-bold" : "text-green-600 font-bold"
+                    }`}
+                  >
+                    {row.status}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 text-center">{row.skill}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Training needs identification */}
+        <div className="mt-6">
+          <h3 className="font-bold mb-2">Training needs Identification</h3>
+          <p className="text-gray-600 mb-4">Please click the button to select courses</p>
+          <button className="px-4 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-600">
+            Course details
+          </button>
+        </div>
+
+        {/* Course selection */}
+        <div className="mt-6">
+          <table className="w-full table-auto border-collapse border border-gray-300">
+            <thead className="bg-gray-200">
+              <tr>
+                <th className="border border-gray-300 px-4 py-2">#</th>
+                <th className="border border-gray-300 px-4 py-2">Course Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 text-center" colSpan="2">
+                  Please select courses
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        {/* Additional training requirement */}
+        <div className="mt-6">
+          <h3 className="font-bold mb-2">Any other training requirement</h3>
+          <textarea
+            className="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            rows="4"
+            placeholder="Enter details here..."
+          ></textarea>
+        </div>
+
+        {/* Additional input */}
+        <div className="mt-4 flex space-x-4">
+          <div>
+            <label className="inline-flex items-center">
+              <input type="checkbox" className="form-checkbox text-blue-600" />
+              <span className="ml-2">Division Head</span>
+            </label>
+          </div>
+          <div className="flex-grow">
+            <input
+              type="text"
+              className="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              placeholder="Enter details"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
       {/* Close Button */}
       <button
         className="mt-6 bg-red-500 text-white px-4 py-2 rounded block mx-auto"
@@ -464,5 +627,6 @@ const HRAspectsModal = ({ closePopup }) => (
     </div>
   </div>
 );
+};
 
 export default HRAspectsModal;
