@@ -24,7 +24,7 @@ const ExecutivePage = () => {
           {/* Left Section */}
           <div className="flex flex-col flex-1 gap-4">
             <EmployeeSelection />
-            <EmployeeDetails />
+            {/* <EmployeeDetails /> */}
           </div>
 
           {/* Right Section */}
