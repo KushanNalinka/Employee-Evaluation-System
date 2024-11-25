@@ -50,7 +50,7 @@ const Sidebar = () => {
         <li className="mb-6">
           <button
             className="flex items-center gap-4 text-xl font-medium hover:text-yellow-400 w-full"
-            onClick={() => navigate("/executive-employee")}
+            onClick={() => navigate("/executive")}
           >
             <FontAwesomeIcon icon={faFolderClosed} className="text-3xl" />
             Executive employee
@@ -59,7 +59,7 @@ const Sidebar = () => {
         <li className="mb-6">
           <button
             className="flex items-center gap-4 text-xl font-medium hover:text-yellow-400 w-full"
-            onClick={() => navigate("/non-executive-employee")}
+            onClick={() => navigate("/non-executive")}
           >
             <FontAwesomeIcon icon={faFolderClosed} className="text-3xl" />
             Non-executive employee
