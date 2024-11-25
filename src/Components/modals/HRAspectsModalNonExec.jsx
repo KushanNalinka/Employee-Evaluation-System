@@ -1,5 +1,6 @@
-
 import React, { useState } from "react";
+import EvaluationHistoryPopup from "./EvaluationHistoryPopup";
+
 
 const trainingData = [
     { id: 14, year: 2005, month: "January", course: "105042 - STRATEGIC MANAGEMENT & BUDGETARY CONTROL", status: "Completed", skill: "-" },
@@ -14,97 +15,161 @@ const trainingData = [
   ];
 
   
+  
 
 const HRAspectsModal = ({ closePopup }) =>{ 
     // Define state inside the component
-  const [marks, setMarks] = useState({
-    achievements: 0,
-    people: 0,
-    managerial: 0,
-    adaptive: 0,
-  });
+  
 
-  const calculateTotal = () => {
-    return (
-      marks.achievements +
-      marks.people +
-      marks.managerial +
-      marks.adaptive
-    );
+
+ 
+     // State to store selected values for each section
+  const [selectedValues, setSelectedValues] = useState(
+    Array(7).fill(null) // For the first 7 criteria
+  );
+  const [hrSelectedValues, setHrSelectedValues] = useState(
+    Array(3).fill(null) // For Attendance, Punctuality, and Discipline
+  );
+
+  // Criteria Lists
+  const criteriaList = [
+    "WORK KNOWLEDGE",
+    "QUALITY OF WORK",
+    "APPLICATION AND EFFICIENCY",
+    "SAFETY CONSCIOUSNESS AND CARE AND USE OF COMPANY PROPERTY",
+    "INITIATIVE WILLINGNESS",
+    "CO-OPERATION AND TEAM WORK",
+    "SITUATIONAL FLEXIBILITY",
+  ];
+
+  const hrCriteriaList = ["ATTENDANCE", "PUNCTUALITY", "DISCIPLINE"];
+
+  // Update selected value for a specific criterion
+  const handleSelection = (index, value, isHr = false) => {
+    if (isHr) {
+      const newHrValues = [...hrSelectedValues];
+      newHrValues[index] = value;
+      setHrSelectedValues(newHrValues);
+    } else {
+      const newValues = [...selectedValues];
+      newValues[index] = value;
+      setSelectedValues(newValues);
+    }
   };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setMarks((prev) => ({
+  // Calculate subtotals
+  const subtotal = selectedValues.reduce((sum, value) => sum + (value || 0), 0);
+  const hrSubtotal = hrSelectedValues.reduce(
+    (sum, value) => sum + (value || 0),
+    0
+  );
+
+  // Calculate grand total
+  const grandTotal = subtotal + hrSubtotal;
+
+
+  const [recommendations, setRecommendations] = useState({
+    engineer: false,
+    departmentalHead: false,
+    divisionHead: false,
+    evaluatedBy: "",
+    checkedBy: "",
+    approvedBy: "",
+    evaluationDiscussed: "",
+    engineerComments: "",
+    departmentalComments: "",
+    divisionRecommendations: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setRecommendations((prev) => ({
       ...prev,
-      [name]: parseInt(value) || 0,
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
     
+
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
   return  (
   <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
     <div className="bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-4xl overflow-y-auto max-h-[90vh]">
-      <h2 className="text-xl font-bold mb-6 text-center">HR Aspects Popup</h2>
+      <h2 className="text-xl font-bold mb-6 text-center">HR Aspects Popup Non Executive</h2>
 
       {/* Attendance Summary Section */}
       <div className="p-4 space-y-6">
-        {/* Attendance Summary */}
-        <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-          <h2 className="text-lg font-bold mb-4">
-            (B). ATTENDANCE SUMMARY (FROM: 2021-01-01 TO 2024-11-22)
-          </h2>
-          <div className="flex space-x-6">
-            {/* Left Table */}
-            <table className="table-auto border-collapse border border-gray-300 w-1/2">
-              <thead>
-                <tr className="bg-gray-100">
-                  <th className="border border-gray-300 px-4 py-2">Description</th>
-                  <th className="border border-gray-300 px-4 py-2">Total</th>
-                  <th className="border border-gray-300 px-4 py-2">Taken</th>
-                  <th className="border border-gray-300 px-4 py-2">Balance</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2">Annual Leave</td>
-                  <td className="border border-gray-300 px-4 py-2">14</td>
-                  <td className="border border-gray-300 px-4 py-2">14</td>
-                  <td className="border border-gray-300 px-4 py-2">0</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2">Casual Leave</td>
-                  <td className="border border-gray-300 px-4 py-2">7</td>
-                  <td className="border border-gray-300 px-4 py-2">6</td>
-                  <td className="border border-gray-300 px-4 py-2">1</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2">Sick Leave</td>
-                  <td className="border border-gray-300 px-4 py-2">21</td>
-                  <td className="border border-gray-300 px-4 py-2">4</td>
-                  <td className="border border-gray-300 px-4 py-2">17</td>
-                </tr>
-              </tbody>
-            </table>
-            {/* Right Summary */}
-            <div className="flex-1 space-y-2">
-              <p className="border-b pb-2">
-                <strong>Leave Type: </strong> Nopay, Not Entered
-              </p>
-              <p>
-                <strong>Short Leave Taken: </strong> 22
-              </p>
-              <p>
-                <strong>Late Occasions: </strong> 0
-              </p>
-              <p>
-                <strong>Extra Hours: </strong> 15.00
-              </p>
-              <p>
-                <strong>Years in Present Grade: </strong>
-              </p>
-            </div>
-          </div>
+       {/* Attendance Summary Section */}
+<div className="p-4">
+  {/* Attendance Summary */}
+  <div className="bg-gray-100 p-6 rounded-lg shadow-md space-y-4">
+    <h2 className="text-lg font-bold">
+      (B). ATTENDANCE SUMMARY (FROM: 2021-01-01 TO 2024-11-25)
+    </h2>
+    <div className="flex space-x-6">
+      {/* Left Table */}
+      <table className="table-auto border-collapse border border-gray-300 w-2/3">
+        <thead>
+          <tr className="bg-gray-200">
+            <th className="border border-gray-300 px-4 py-2 text-left">Description</th>
+            <th className="border border-gray-300 px-4 py-2 text-center">Total</th>
+            <th className="border border-gray-300 px-4 py-2 text-center">Taken</th>
+            <th className="border border-gray-300 px-4 py-2 text-center">Balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="border border-gray-300 px-4 py-2">Annual Leave</td>
+            <td className="border border-gray-300 px-4 py-2 text-center">14</td>
+            <td className="border border-gray-300 px-4 py-2 text-center">13.5</td>
+            <td className="border border-gray-300 px-4 py-2 text-center">0.5</td>
+          </tr>
+          <tr>
+            <td className="border border-gray-300 px-4 py-2">Casual Leave</td>
+            <td className="border border-gray-300 px-4 py-2 text-center">7</td>
+            <td className="border border-gray-300 px-4 py-2 text-center">6.5</td>
+            <td className="border border-gray-300 px-4 py-2 text-center">0.5</td>
+          </tr>
+          <tr>
+            <td className="border border-gray-300 px-4 py-2">Sick Leave</td>
+            <td className="border border-gray-300 px-4 py-2 text-center">21</td>
+            <td className="border border-gray-300 px-4 py-2 text-center">20.5</td>
+            <td className="border border-gray-300 px-4 py-2 text-center">0.5</td>
+          </tr>
+        </tbody>
+      </table>
+
+      {/* Right Summary */}
+      <div className="w-1/3 space-y-4">
+        <table className="table-auto border-collapse border border-gray-300 w-full">
+          <thead>
+            <tr className="bg-gray-200">
+              <th className="border border-gray-300 px-4 py-2 text-left">Leave Type</th>
+              <th className="border border-gray-300 px-4 py-2 text-center">Days</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="border border-gray-300 px-4 py-2">Nopay</td>
+              <td className="border border-gray-300 px-4 py-2 text-center"></td>
+            </tr>
+            <tr>
+              <td className="border border-gray-300 px-4 py-2">Not Entered</td>
+              <td className="border border-gray-300 px-4 py-2 text-center"></td>
+            </tr>
+          </tbody>
+        </table>
+        <div className="space-y-1">
+          <p><strong>Short leave Taken:</strong> 6</p>
+          <p><strong>Late Occasions:</strong> 0</p>
+          <p><strong>Extra Hours:</strong> 1181.00</p>
+          <p><strong>Years in present grade:</strong></p>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
         {/* Disciplinary Actions Section */}
         <div className="bg-gray-100 p-6 rounded-lg shadow-md">
@@ -197,153 +262,231 @@ const HRAspectsModal = ({ closePopup }) =>{
         </div>
       </div>
 
-      {/* New Sections */}
-      <div className="space-y-6">
-        {/* Evaluation - Performance Criteria Section */}
-        {/* Evaluation - Performance Criteria Section */}
-      <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-        <div className="flex justify-between items-center">
-          <h2 className="text-lg font-bold">
-            (E). EVALUATION - PERFORMANCE CRITERIA <br />(To be evaluated by the Section)
-          </h2>
-          <button className="px-4 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-600">
-            Increment Allocation
-          </button>
-        </div>
-        <div className="space-y-4 mt-4">
-            {/* List of criteria */}
-            <ul className="list-disc pl-6 space-y-2">
-        <li className="bg-gray-200 p-2 rounded">A. ACHIEVEMENT ORIENTATION</li>
-        <li className="bg-gray-200 p-2 rounded">B. PEOPLE ORIENTATION</li>
-        <li className="bg-gray-200 p-2 rounded">C. MANAGERIAL ORIENTATION</li>
-        <li className="bg-gray-200 p-2 rounded">D. ADAPTIVE ORIENTATION</li>
-      </ul>
 
-          {/* Input fields for marks */}
-          {/* Input fields for marks */}
-      <div className="grid grid-cols-2 gap-4 items-center">
-        <div>
-          <label className="block font-bold mb-1">Achievements Orientation</label>
-          <input
-            type="number"
-            name="achievements"
-            value={marks.achievements}
-            onChange={handleInputChange}
-            className="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-          />
-        </div>
-        <div>
-          <label className="block font-bold mb-1">People Orientation</label>
-          <input
-            type="number"
-            name="people"
-            value={marks.people}
-            onChange={handleInputChange}
-            className="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-          />
-        </div>
-        <div>
-          <label className="block font-bold mb-1">Managerial Orientation</label>
-          <input
-            type="number"
-            name="managerial"
-            value={marks.managerial}
-            onChange={handleInputChange}
-            className="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-          />
-        </div>
-        <div>
-          <label className="block font-bold mb-1">Adaptive Orientation</label>
-          <input
-            type="number"
-            name="adaptive"
-            value={marks.adaptive}
-            onChange={handleInputChange}
-            className="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-          />
-        </div>
-      </div>
-      <div className="text-right font-bold text-blue-600 mt-4">
-        Total Marks (Out of 100): {calculateTotal()}
-      </div>
-    </div>
-      </div>
-       
+      {/* Evaluation Section */}
+      <div className="p-4">
+      <div className="bg-gray-100 p-6 rounded-lg shadow-md space-y-4">
+        {/* Main Header */}
+        <h2 className="text-lg font-bold text-red-600">
+          * (E). EVALUATION - PERFORMANCE CRITERIA (To be evaluated by the
+          Section)
+        </h2>
+        <button className="bg-blue-500 text-white px-4 py-2 rounded shadow-md float-right hover:bg-blue-600">
+          Increment Allocation
+        </button>
+        <div className="clear-both"></div>
 
-
-        {/* Evaluation discussed with the Employee Section */}
-        <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-  <div className="flex items-center justify-between">
-    <h2 className="text-lg font-bold">Evaluation discussed with the Employee:</h2>
-    <div className="flex items-center space-x-4">
-      <label>
-        <input type="radio" name="evaluation" value="yes" className="mr-2" />
-        Yes
-      </label>
-      <label>
-        <input type="radio" name="evaluation" value="no" className="mr-2" />
-        No
-      </label>
-    </div>
-  </div>
-  <div className="mt-4">
-    <label className="block font-bold mb-1">Recommended Increments:</label>
-    <input
-      type="text"
-      className="w-full border border-gray-300 rounded p-2"
-    />
-  </div>
-</div>
-
-
-        {/* Commendation and Recommendation Section */}
-        <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-          <h2 className="text-lg font-bold mb-4">Commendation and Recommendation</h2>
-          <div className="space-y-6">
-            {/* Special Comments by Department Head */}
-            <div>
-              <label className="block font-bold mb-1">
-                Special Comments by Department Head
-              </label>
-              <textarea
-                rows="3"
-                className="w-full border border-gray-300 rounded p-2"
-              ></textarea>
-              <div className="flex items-center space-x-4 mt-2">
-                <label>
-                  <input type="checkbox" className="mr-2" />
-                  Departmental Head
-                </label>
-                <label>
-                  <input type="checkbox" className="mr-2" />
-                  Promotion Recommended
-                </label>
-              </div>
+        {/* Section Evaluation Criteria */}
+        {criteriaList.map((criteria, index) => (
+          <div key={index} className="space-y-2">
+            <h3 className="font-semibold">{`${index + 1}. ${criteria}`}</h3>
+            <p className="text-gray-500 text-sm">Please select an Employee</p>
+            <div className="flex space-x-1 justify-center">
+              {[10, 9, 8, 7, 6, 5, 4, 3, 2, 1].map((value) => (
+                <button
+                  key={value}
+                  className={`w-12 h-12 flex items-center justify-center rounded ${
+                    selectedValues[index] === value
+                      ? "bg-orange-500 text-white"
+                      : "bg-blue-500 text-white hover:bg-blue-600"
+                  }`}
+                  onClick={() => handleSelection(index, value)}
+                >
+                  {value}
+                </button>
+              ))}
             </div>
-
-            {/* Recommendation by Division Head */}
-            <div>
-              <label className="block font-bold mb-1">
-                Recommendation by Division Head
-              </label>
-              <textarea
-                rows="3"
-                className="w-full border border-gray-300 rounded p-2"
-              ></textarea>
-              <div className="flex items-center space-x-4 mt-2">
-                <label>
-                  <input type="checkbox" className="mr-2" />
-                  Division Head
-                </label>
-                <label>
-                  <input type="checkbox" className="mr-2" />
-                  Promotion recommended and approved
-                </label>
-              </div>
-            </div>
+            <p className="text-sm text-blue-600">
+              Selected Value for {criteria}:{" "}
+              <span className="text-red-500">
+                {selectedValues[index] !== null
+                  ? selectedValues[index]
+                  : "No value selected."}
+              </span>
+            </p>
           </div>
+        ))}
+
+        {/* HR Division Criteria */}
+        <h2 className="text-lg font-bold text-red-600">
+          (F). EVALUATION - PERFORMANCE CRITERIA - To be evaluated by HR
+          Division
+        </h2>
+        {hrCriteriaList.map((criteria, index) => (
+          <div key={index} className="space-y-2">
+            <h3 className="font-semibold">{`${index + 8}. ${criteria}`}</h3>
+            <div className="flex space-x-1 justify-center">
+              {[10, 9, 8, 7, 6, 5, 4, 3, 2, 1].map((value) => (
+                <button
+                  key={value}
+                  className={`w-12 h-12 flex items-center justify-center rounded ${
+                    hrSelectedValues[index] === value
+                      ? "bg-orange-500 text-white"
+                      : "bg-blue-500 text-white hover:bg-blue-600"
+                  }`}
+                  onClick={() => handleSelection(index, value, true)}
+                >
+                  {value}
+                </button>
+              ))}
+            </div>
+            <p className="text-sm text-blue-600">
+              Selected Value for {criteria}:{" "}
+              <span className="text-red-500">
+                {hrSelectedValues[index] !== null
+                  ? hrSelectedValues[index]
+                  : "No value selected."}
+              </span>
+            </p>
+          </div>
+        ))}
+
+        {/* Subtotal and Grand Total */}
+        <div className="pt-4 text-right">
+          <p className="font-bold text-lg">
+            Subtotal (Out of 70): <span className="text-blue-600">{subtotal}</span>
+          </p>
+          <p className="font-bold text-lg">
+            GRAND TOTAL (Out of 100):{" "}
+            <span className="text-blue-600">{grandTotal}</span>
+          </p>
         </div>
       </div>
+    </div>
+
+<br/>
+<div className="bg-blue-100 p-6 rounded-lg shadow-md mt-6">
+      <h3 className="font-bold text-lg mb-4">
+        RECOMMENDATION FOR GRADE PROMOTION (Please tick if recommended)
+      </h3>
+      <div className="grid grid-cols-3 gap-4 items-center">
+        {/* Checkboxes */}
+        <label className="flex items-center space-x-2">
+          <input
+            type="checkbox"
+            name="engineer"
+            checked={recommendations.engineer}
+            onChange={handleChange}
+          />
+          <span>Engineer / Executive In-charge</span>
+        </label>
+        <label className="flex items-center space-x-2">
+          <input
+            type="checkbox"
+            name="departmentalHead"
+            checked={recommendations.departmentalHead}
+            onChange={handleChange}
+          />
+          <span>Departmental Head</span>
+        </label>
+        <label className="flex items-center space-x-2">
+          <input
+            type="checkbox"
+            name="divisionHead"
+            checked={recommendations.divisionHead}
+            onChange={handleChange}
+          />
+          <span>Division Head</span>
+        </label>
+
+        {/* Input fields */}
+        <input
+          type="text"
+          name="evaluatedBy"
+          value={recommendations.evaluatedBy}
+          onChange={handleChange}
+          placeholder="Evaluated by"
+          className="border p-2 rounded"
+        />
+        <input
+          type="text"
+          name="checkedBy"
+          value={recommendations.checkedBy}
+          onChange={handleChange}
+          placeholder="Checked by"
+          className="border p-2 rounded"
+        />
+        <input
+          type="text"
+          name="approvedBy"
+          value={recommendations.approvedBy}
+          onChange={handleChange}
+          placeholder="Approved by"
+          className="border p-2 rounded"
+        />
+      </div>
+
+      {/* Radio buttons for evaluation discussion */}
+      <div className="mt-4">
+        <label className="font-semibold text-red-600">
+          * Evaluation discussed with the Employee:
+        </label>
+        <div className="flex space-x-4 mt-2">
+          <label className="flex items-center space-x-2">
+            <input
+              type="radio"
+              name="evaluationDiscussed"
+              value="Yes"
+              checked={recommendations.evaluationDiscussed === "Yes"}
+              onChange={handleChange}
+            />
+            <span>Yes</span>
+          </label>
+          <label className="flex items-center space-x-2">
+            <input
+              type="radio"
+              name="evaluationDiscussed"
+              value="No"
+              checked={recommendations.evaluationDiscussed === "No"}
+              onChange={handleChange}
+            />
+            <span>No</span>
+          </label>
+        </div>
+      </div>
+
+      {/* Textareas */}
+      <div className="grid grid-cols-2 gap-4 mt-4">
+        <div>
+          <label className="font-semibold">
+            Comments by Engineer / Executive In-charge
+          </label>
+          <textarea
+            name="engineerComments"
+            value={recommendations.engineerComments}
+            onChange={handleChange}
+            className="border p-2 rounded w-full"
+            rows="3"
+          />
+        </div>
+        <div>
+          <label className="font-semibold">
+            Special Comments by Departmental Head
+          </label>
+          <textarea
+            name="departmentalComments"
+            value={recommendations.departmentalComments}
+            onChange={handleChange}
+            className="border p-2 rounded w-full"
+            rows="3"
+          />
+        </div>
+      </div>
+      <div className="mt-4">
+        <label className="font-semibold">
+          Recommendations by Divisional Head
+        </label>
+        <textarea
+          name="divisionRecommendations"
+          value={recommendations.divisionRecommendations}
+          onChange={handleChange}
+          className="border p-2 rounded w-full"
+          rows="3"
+        />
+      </div>
+    </div>
+
+      
 
       <br/>
 
@@ -356,6 +499,20 @@ const HRAspectsModal = ({ closePopup }) =>{
 
         {/* Recommendation */}
         <div className="mb-4">
+      
+        <label className="font-semibold block mb-2">Evaluation History:</label>
+        
+        <button
+        onClick={() => setIsPopupOpen(true)}
+        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+      >
+        Click Here
+      </button>
+      <EvaluationHistoryPopup
+        isOpen={isPopupOpen}
+        onClose={() => setIsPopupOpen(false)}
+      />
+   
           <label className="block font-bold mb-1">
             * Do you recommend the above employee to be granted with "Special
             Additional" salary increments with regard to any exceptional
