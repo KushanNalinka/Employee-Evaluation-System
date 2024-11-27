@@ -1,25 +1,21 @@
-// import React from 'react';
-
-// const CompetenciesModal = ({ closePopup }) => (
-//   <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-//     <div className="bg-white p-6 rounded shadow-lg">
-//       <h2 className="text-xl font-bold mb-4">Competencies Popup</h2>
-//       <p>This is the content for the Competencies popup.</p>
-//       <button
-//         className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
-//         onClick={closePopup}
-//       >
-//         Close
-//       </button>
-//     </div>
-//   </div>
-// );
-
-// export default CompetenciesModal;
-
 import React from "react";
 
-const CompetenciesModal = ({ closePopup }) => {
+const CompetenciesModal = ({ closePopup, toggleModal }) => {
+  const getCategoryColor = (category) => {
+    switch (category) {
+      case "Achievement Orientation":
+        return "text-red-500";
+      case "People Orientation":
+        return "text-green-500";
+      case "Managerial Orientation":
+        return "text-red-800";
+      case "Adaptive Orientation":
+        return "text-purple-500";
+      default:
+        return "text-black";
+    }
+  };
+
   const evaluationCriteria = [
     {
       category: "Achievement Orientation",
@@ -62,6 +58,26 @@ const CompetenciesModal = ({ closePopup }) => {
             "3: Communicates clearly and effectively most of the time; ideas are well understood.",
             "4: Consistently communicates in a clear, concise, and impactful manner; listens actively to others.",
             "5: Excels in all forms of communication, frequently influencing stakeholders and teams; listens attentively and encourages open dialogue.",
+          ],
+        },
+        {
+          title: "5. Written Communication & Documentation Skills",
+          options: [
+            "1: Written communication is often unclear, poorly structured, or lacks necessary detail, leading to misunderstandings.",
+            "2: Writing is occasionally unclear or incomplete, requiring follow-up for clarification.",
+            "3: Writes clearly and concisely, conveying necessary information without confusion.",
+            "4: Produces well-organized and insightful written content, contributing to effective decision-making and team understanding.",
+            "5: Consistently delivers exceptional written communication that is persuasive, detailed, and highly impactful.",
+          ],
+        },
+        {
+          title: "6. Analytical & Strategic Thinking",
+          options: [
+            "1: Struggles to analyze information or problems; solutions are often superficial or incorrect.",
+            "2: Displays limited analytical thinking; occasionally misses key details or fails to address the root of problems.",
+            "3: Analyzes problems effectively, drawing reasonable conclusions and proposing viable solutions.",
+            "4: Consistently displays strong analytical skills, identifying underlying issues and proposing strategic solutions.",
+            "5: Demonstrates exceptional analytical and strategic thinking, foreseeing potential challenges and developing innovative, long-term solutions.",
           ],
         },
       ],
@@ -124,28 +140,138 @@ const CompetenciesModal = ({ closePopup }) => {
     {
       category: "Managerial Orientation",
       subCategories: [
-        // Include all subcategories for Managerial Orientation in the same format
+        {
+          title: "12. Accountability & Ownership",
+          options: [
+            "1: Avoids taking responsibility for mistakes or outcomes; fails to hold others accountable.",
+            "2: Occasionally avoids accountability or fails to take ownership of significant challenges.",
+            "3: Takes responsibility for own and team's outcomes; holds others accountable for their work.",
+            "4: Consistently takes ownership of both successes and failures, driving accountability within the team.",
+            "5: Exemplifies accountability, setting a standard of ownership and responsibility that inspires others.",
+          ],
+        },
+        {
+          title: "13. Reliability & Commitment",
+          options: [
+            "1: Frequently unreliable; misses deadlines or fails to complete tasks.",
+            "2: Occasionally unreliable, missing some deadlines or producing incomplete work.",
+            "3: Reliable and meets deadlines consistently; completes tasks as assigned.",
+            "4: Demonstrates high reliability, frequently going beyond expectations to deliver quality work.",
+            "5: Exceptionally reliable, consistently delivering high-quality work ahead of deadlines.",
+          ],
+        },
+        {
+          title: "14. Ethical Integrity & Transparency",
+          options: [
+            "1: Frequently displays unethical behavior or lacks transparency, damaging trust within the team or organization.",
+            "2: Occasionally acts in ways that are not entirely transparent; ethical integrity may be compromised in certain situations.",
+            "3: Consistently demonstrates ethical behavior and transparency in all interactions; follows company values and ethical standards.",
+            "4: Actively promotes ethical behavior and transparency across the team, leading by example and ensuring fairness in decision-making.",
+            "5: Serves as a role model for ethical behavior and transparency; inspires trust and commitment to integrity throughout the organization.",
+          ],
+        },
+        {
+          title: "15. Organizational Alignment & Loyalty",
+          options: [
+            "1: Lacks alignment with organizational goals; frequently disengaged or indifferent to company objectives.",
+            "2: Shows occasional misalignment with organizational values or objectives; loyalty to the organization is inconsistent.",
+            "3: Aligns personal and team goals with organizational objectives; demonstrates loyalty to the company and supports its mission.",
+            "4: Regularly contributes to aligning team performance with company objectives; shows strong loyalty and commitment to the organization’s success.",
+            "5: Acts as a key advocate for the organization’s values and vision; consistently works to align the team’s goals with those of the company and drives loyalty among others.",
+          ],
+        },
+        {
+          title: "16. Professionalism & Stakeholder Relations",
+          options: [
+            "1: Exhibits unprofessional behavior or struggles to maintain positive relationships with stakeholders.",
+            "2: Inconsistent professionalism; stakeholder relationships may be weak or strained at times.",
+            "3: Demonstrates professionalism in interactions with all stakeholders; maintains positive and productive working relationships.",
+            "4: Regularly demonstrates high levels of professionalism; fosters strong, productive relationships with both internal and external stakeholders.",
+            "5: Exemplifies professionalism in all aspects; builds and maintains exceptional relationships with stakeholders, enhancing the company’s reputation.",
+          ],
+        },
+        {
+          title: "17. Adherence to Corporate Values & Policies",
+          options: [
+            "1: Frequently disregards company policies and values, showing little commitment to organizational rules.",
+            "2: Occasionally ignores or challenges company policies and values; inconsistent adherence.",
+            "3: Consistently follows company policies and demonstrates adherence to corporate values in day-to-day activities.",
+            "4: Proactively upholds and promotes company policies and values within the team, serving as an example to others.",
+            "5: Exemplifies unwavering commitment to corporate values and policies; consistently encourages others to do the same and contributes to improving company culture.",
+          ],
+        },
       ],
     },
     {
       category: "Adaptive Orientation",
       subCategories: [
-        // Include all subcategories for Adaptive Orientation in the same format
+        {
+          title: "18. Stress Management & Emotional Intelligence",
+          options: [
+            "1: Displays inconsistent stress management; emotional responses under pressure may occasionally affect decision-making or team dynamics.",
+            "2: Manages stress effectively; remains composed under pressure and demonstrates good emotional intelligence in dealing with others.",
+            "3: Handles high-pressure situations with calm and grace; demonstrates strong emotional intelligence, positively influencing team dynamics.",
+            "4: Excels in stress management, remaining consistently composed and supportive under the most challenging circumstances; exemplifies emotional intelligence and fosters resilience in others.",
+          ],
+        },
+        {
+          title: "19. Adaptability & Change Leadership",
+          options: [
+            "1: Resists change or is slow to adapt to new circumstances, leading to missed opportunities or delays in projects.",
+            "2: Occasionally struggles to adapt to new situations or changes in the business environment, affecting productivity.",
+            "3: Embraces change and adapts well to new circumstances; encourages the team to accept and work through changes effectively.",
+            "4: Demonstrates strong adaptability in shifting conditions; leads the team through change with clarity and positive energy.",
+            "5: Champions organizational change; quickly adapts and innovates in response to new challenges, driving the team to thrive in changing environments.",
+          ],
+        },
+        {
+          title: "20. Agility & Situational Flexibility",
+          options: [
+            "1: Struggles to adjust to unexpected changes or challenges; often rigid in approach and unable to modify behavior to suit different situations.",
+            "2: Occasionally shows difficulty in modifying behavior or approaches in the face of situational changes.",
+            "3: Demonstrates flexibility and adjusts behavior as needed to manage different situations and challenges.",
+            "4: Shows strong agility in navigating complex, dynamic situations, effectively adjusting approaches and driving positive outcomes.",
+            "5: Exceptionally agile in diverse and unpredictable situations; consistently adapts and leads the team to success, regardless of changing circumstances.",
+          ],
+        },
       ],
     },
   ];
 
   return (
+    // <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white p-6 rounded shadow-lg max-h-screen overflow-auto w-full max-w-4xl">
+      {/* <div className="bg-white p-6 rounded shadow-lg max-h-screen overflow-auto w-full max-w-4xl" onClick={toggleModal}> */}
+      <div
+        className="relative bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-4xl overflow-y-auto max-h-[90vh]"
+        style={{ width: "1250px", maxWidth: "100%" }}
+        onClick={toggleModal}
+      >
+        <button
+          className="absolute top-2 right-2 text-red-500 text-2xl font-bold focus:outline-none"
+          onClick={closePopup}
+        >
+          &times;
+        </button>
         <h2 className="text-xl font-bold mb-4">Competencies Evaluation</h2>
         <div>
           {evaluationCriteria.map((criteria, index) => (
             <div key={index} className="mb-6">
-              <h3 className="text-lg font-semibold mb-2">{criteria.category}</h3>
+              {/* <h3 className="text-lg font-semibold mb-2">
+                {criteria.category}
+              </h3> */}
+              <h2
+                className={`font-bold text-lg ${getCategoryColor(
+                  criteria.category
+                )}`}
+              >
+                {criteria.category}
+              </h2>
               {criteria.subCategories.map((subCategory, subIndex) => (
                 <div key={subIndex} className="mb-4">
-                  <h4 className="text-md font-medium mb-2">{subCategory.title}</h4>
+                  <h4 className="text-md font-medium mb-2">
+                    {subCategory.title}
+                  </h4>
                   {subCategory.options.map((option, optIndex) => (
                     <label
                       key={optIndex}

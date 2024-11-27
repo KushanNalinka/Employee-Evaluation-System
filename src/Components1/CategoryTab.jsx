@@ -1,8 +1,11 @@
+
+
+
 import React, { useState } from 'react';
-import KPIModal from './modals/KPIModalNonExec';
-import CompetenciesModal from './modals/CompetenciesModalNonExec';
-import CareerDevelopmentModal from './modals/CareerDevelopmentModalNonExec';
-import HRAspectsModal from './modals/HRAspectsModalNonExec';
+import KPIModal from './modals/KPIModal';
+import CompetenciesModal from './modals/CompetenciesModal';
+import CareerDevelopmentModal from './modals/CareerDevelopmentModal';
+import HRAspectsModal from './modals/HRAspectsModal';
 
 const CategoryTab = () => {
   const [activePopup, setActivePopup] = useState(null);
