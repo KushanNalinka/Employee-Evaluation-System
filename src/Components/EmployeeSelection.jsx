@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import image1 from "../assets/images/executive.914c1c1e735aaecabb8f.png";
+import EMPModal from "../Components/modals/EMPModal";
 
 const EmployeeSelection = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [employee, setEmployee] = useState(null);
 
   // Simulating an API call
@@ -44,6 +46,9 @@ const EmployeeSelection = () => {
   useEffect(() => {
     fetchEmployeeData();
   }, []);
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
 
   return (
     <div className="bg-white shadow-lg p-6 rounded-lg mb-4">
@@ -65,7 +70,10 @@ const EmployeeSelection = () => {
               <label className="font-medium text-gray-700">
                 Select an Employee:
               </label>
-              <button className="bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-600">
+              <button
+                className="bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-600"
+                onClick={toggleModal}
+              >
                 Click here
               </button>
             </div>
@@ -115,19 +123,28 @@ const EmployeeSelection = () => {
                 className="block w-full text-sm text-gray-700 border border-gray-300 rounded-lg p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
+
             {/* Buttons */}
-            <div className="flex gap-2">
+            {/* <div className="flex gap-2">
               <button className="bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600">
                 Save Data
               </button>
               <button className="bg-red-500 text-white px-4 py-2 rounded shadow hover:bg-red-600">
                 Reset
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
 
         {/* Right Section */}
+        {/* <div className="flex items-center">
+          <img
+            src={image1}
+            alt="Employee"
+            className="w-56 h-56 rounded border border-gray-300 shadow"
+          />
+        </div> */}
+        {/* Right Section (Image) */}
         <div className="flex items-center">
           <img
             src={image1}
@@ -137,11 +154,19 @@ const EmployeeSelection = () => {
         </div>
       </div>
 
+      {/* Buttons (below the image) */}
+      <div className="flex gap-2 mt-4 justify-start">
+        <button className="bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600">
+          Save Data
+        </button>
+        <button className="bg-red-500 text-white px-4 py-2 rounded shadow hover:bg-red-600">
+          Reset
+        </button>
+      </div>
+
       {/* Employee Details Section */}
       <div className="bg-white shadow p-4 rounded mt-6">
-        <h2 className="text-lg font-bold text-gray-700 mb-4">
-          (A) PERSONAL DATA
-        </h2>
+        <h2 className="text-lg font-bold text-gray-700 mb-4">Profile</h2>
         {employee ? (
           <ul className="space-y-2">
             <li>
@@ -179,6 +204,7 @@ const EmployeeSelection = () => {
           <p>Loading employee data...</p>
         )}
       </div>
+      <EMPModal isModalOpen={isModalOpen} toggleModal={toggleModal} />
     </div>
   );
 };
