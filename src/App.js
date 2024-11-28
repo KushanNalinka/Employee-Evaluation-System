@@ -5,6 +5,7 @@ import ExecutivePage from './Pages/ExecutivePage';
 import NonExecutivePage from './Pages/NonExecutivePage';
 import Login from './Pages/Login';
 import Home  from './Pages/Home';
+import Unkown from './Pages/UnknownPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
     <Route path="/non-executive" element={< NonExecutivePage/>} />
     <Route path="/" element={< Login/>} />
     <Route path="/home" element={< Home/>} />
+    <Route path="/un" element={< Unkown/>} />
     </Routes>
     </BrowserRouter>
   
