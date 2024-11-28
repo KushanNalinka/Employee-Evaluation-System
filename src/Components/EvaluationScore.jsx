@@ -7,6 +7,7 @@ const EvaluationScore = () => {
         <table className="table-auto w-full border">
           <thead>
             <tr className="bg-gray-100 text-left">
+              <th className="p-2 border"></th>
               <th className="p-2 border">KPI</th>
               <th className="p-2 border">Competencies</th>
               <th className="p-2 border">Career Development</th>
@@ -16,6 +17,7 @@ const EvaluationScore = () => {
           </thead>
           <tbody>
             <tr>
+              <td className="p-2 border text-center">Allocations</td>
               <td className="p-2 border text-center">40%</td>
               <td className="p-2 border text-center">40%</td>
               <td className="p-2 border text-center">5%</td>
@@ -23,6 +25,7 @@ const EvaluationScore = () => {
               <td className="p-2 border text-center">100</td>
             </tr>
             <tr>
+              <td className="p-2 border text-center">Actual</td>
               <td className="p-2 border text-center">24</td>
               <td className="p-2 border text-center">20</td>
               <td className="p-2 border text-center">2</td>
