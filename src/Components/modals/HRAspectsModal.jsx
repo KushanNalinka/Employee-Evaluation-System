@@ -75,7 +75,7 @@ const trainingData = [
   },
 ];
 
-const HRAspectsModal = ({ closePopup,toggleModal }) => {
+const HRAspectsModal = ({ closePopup, toggleModal }) => {
   // Define state inside the component
   const [marks, setMarks] = useState({
     achievements: 0,
@@ -100,17 +100,19 @@ const HRAspectsModal = ({ closePopup,toggleModal }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-    <div className="bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-4xl overflow-y-auto max-h-[90vh]" onClick={toggleModal}>
-      <div className="flex justify-between items-center mb-6">
-      <h2 className="text-xl font-bold mb-6">HR Aspects</h2>
-        <button
-          className="text-red-500 text-2xl font-semibold"
-          onClick={closePopup}
-        >
-          &times;
-        </button>
-      </div>
-
+      <div
+        className="bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-4xl overflow-y-auto max-h-[90vh]"
+        style={{ width: "1250px", maxWidth: "100%" }} onClick={toggleModal}
+      >
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-xl font-bold">HR Aspects</h2>
+          <button
+            className="text-red-500 text-2xl font-semibold"
+            onClick={closePopup}
+          >
+            &times;
+          </button>
+        </div>
 
         {/* Attendance Summary Section */}
         <div className="p-4 space-y-6">
@@ -119,7 +121,7 @@ const HRAspectsModal = ({ closePopup,toggleModal }) => {
           {/* Attendance Summary Section */}
 
           {/* Attendance Summary */}
-          <div className="bg-gray-100 p-6 rounded-lg shadow-md space-y-4">
+          <div className="p-6 rounded-lg shadow-md space-y-4">
             <h2 className="text-lg font-semibold">
               (B). ATTENDANCE SUMMARY (FROM: 2021-01-01 TO 2024-11-25)
             </h2>
@@ -235,7 +237,7 @@ const HRAspectsModal = ({ closePopup,toggleModal }) => {
           </div>
 
           {/* Disciplinary Actions Section */}
-          <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+          <div className="p-6 rounded-lg shadow-md">
             <h2 className="text-lg font-semibold mb-4">
               (C). DISCIPLINARY ACTIONS / COMMENDATIONS (FROM: 2021-01-01 TO
               2024-11-22)
@@ -302,7 +304,7 @@ const HRAspectsModal = ({ closePopup,toggleModal }) => {
           </div>
 
           {/* Critical Incidents Section */}
-          <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+          <div className="p-6 rounded-lg shadow-md">
             <h2 className="text-lg font-semibold mb-4">
               (D). CRITICAL INCIDENTS (FROM: 2021-01-01 TO 2024-11-22)
             </h2>
@@ -339,7 +341,7 @@ const HRAspectsModal = ({ closePopup,toggleModal }) => {
         <div className="space-y-6">
           {/* Evaluation - Performance Criteria Section */}
           {/* Evaluation - Performance Criteria Section */}
-          <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+          <div className="p-6 rounded-lg shadow-md">
             <div className="flex justify-between items-center">
               <h2 className="text-lg font-semibold">
                 (E). EVALUATION - PERFORMANCE CRITERIA <br />
@@ -424,7 +426,7 @@ const HRAspectsModal = ({ closePopup,toggleModal }) => {
             </div>
           </div>
           {/* Evaluation discussed with the Employee Section */}
-          <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+          <div className="p-6 rounded-lg shadow-md">
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-semibold">
                 Evaluation discussed with the Employee:
@@ -461,7 +463,7 @@ const HRAspectsModal = ({ closePopup,toggleModal }) => {
             </div>
           </div>
           {/* Commendation and Recommendation Section */}
-          <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+          <div className="p-6 rounded-lg shadow-md">
             <h2 className="text-lg font-semibold mb-4">
               Commendation and Recommendation
             </h2>
@@ -511,7 +513,7 @@ const HRAspectsModal = ({ closePopup,toggleModal }) => {
         </div>
         <br />
         {/* Special Evaluation Section */}
-        <div className="bg-gray-100  rounded-lg shadow-md">
+        <div className="bg-gray-50  rounded-lg shadow-md">
           <h2 className="text-lg font-semibold mb-4 text-white bg-blue-600 p-2 uppercase">
             Special Evaluation
           </h2>
@@ -634,7 +636,9 @@ const HRAspectsModal = ({ closePopup,toggleModal }) => {
           </div>
           {/* Total increments */}
           <div className="mb-4">
-            <label className="block font-semibold mb-1">Total Increments:</label>
+            <label className="block font-semibold mb-1">
+              Total Increments:
+            </label>
             <input
               type="number"
               className="w-full border border-gray-300 rounded p-2"
@@ -704,7 +708,7 @@ const HRAspectsModal = ({ closePopup,toggleModal }) => {
             ></textarea>
           </div>
         </div>
-        <div className="p-8 bg-gray-100">
+        <div className="p-6 rounded-lg shadow-md">
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h2 className="text-lg font-semibold mb-4">Training Attended</h2>
             <div className="overflow-x-auto">
@@ -760,7 +764,9 @@ const HRAspectsModal = ({ closePopup,toggleModal }) => {
             </div>
             {/* Training needs identification */}
             <div className="mt-6">
-              <h3 className="font-semibold mb-2">Training needs Identification</h3>
+              <h3 className="font-semibold mb-2">
+                Training needs Identification
+              </h3>
               <p className="text-gray-600 mb-4">
                 Please click the button to select courses
               </p>
@@ -793,7 +799,9 @@ const HRAspectsModal = ({ closePopup,toggleModal }) => {
             </div>
             {/* Additional training requirement */}
             <div className="mt-6">
-              <h3 className="font-semibold mb-2">Any other training requirement</h3>
+              <h3 className="font-semibold mb-2">
+                Any other training requirement
+              </h3>
               <textarea
                 className="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 rows="4"
