@@ -1,6 +1,3 @@
-
-
-
 import React, { useState } from 'react';
 import KPIModal from './modals/KPIModalNonExec';
 import CompetenciesModal from './modals/CompetenciesModalNonExec';

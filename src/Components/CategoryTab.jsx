@@ -1,6 +1,3 @@
-
-
-
 import React, { useState } from 'react';
 import KPIModal from './modals/KPIModal';
 import CompetenciesModal from './modals/CompetenciesModal';
