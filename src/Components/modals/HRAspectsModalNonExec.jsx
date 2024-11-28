@@ -139,11 +139,14 @@ const HRAspectsModal = ({ closePopup }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-4xl overflow-y-auto max-h-[90vh]">
-        <div className="flex justify-between items-center mb-6">
+      <div
+        className="bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-4xl overflow-y-auto max-h-[90vh]"
+        style={{ width: "1250px", maxWidth: "100%" }}
+      >
+        <div className="flex justify-between items-center">
           <h2 className="text-xl font-bold">HR Aspects Non Executive.</h2>
           <button
-            className="text-red-500 text-2xl font-bold"
+            className="text-red-500 text-2xl font-semibold"
             onClick={closePopup}
           >
             &times;
@@ -154,8 +157,8 @@ const HRAspectsModal = ({ closePopup }) => {
           {/* Attendance Summary Section */}
           <div className="p-4">
             {/* Attendance Summary */}
-            <div className="bg-gray-100 p-6 rounded-lg shadow-md space-y-4">
-              <h2 className="text-lg font-bold">
+            <div className="p-6 rounded-lg shadow-md space-y-4">
+              <h2 className="text-lg font-semibold">
                 (B). ATTENDANCE SUMMARY (FROM: 2021-01-01 TO 2024-11-25)
               </h2>
               <div className="flex space-x-6">
@@ -270,15 +273,15 @@ const HRAspectsModal = ({ closePopup }) => {
           </div>
 
           {/* Disciplinary Actions Section */}
-          <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-            <h2 className="text-lg font-bold mb-4">
+          <div className="p-6 rounded-lg shadow-md">
+            <h2 className="text-lg font-semibold mb-4">
               (C). DISCIPLINARY ACTIONS / COMMENDATIONS (FROM: 2021-01-01 TO
               2024-11-22)
             </h2>
             <div className="space-y-6">
               {/* Commendations */}
               <div>
-                <h3 className="font-bold mb-2">Commendations</h3>
+                <h3 className="font-semibold mb-2">Commendations</h3>
                 <table className="table-auto border-collapse border border-gray-300 w-full">
                   <thead>
                     <tr className="bg-gray-100">
@@ -306,7 +309,7 @@ const HRAspectsModal = ({ closePopup }) => {
               </div>
               {/* Offences */}
               <div>
-                <h3 className="font-bold mb-2">Offences</h3>
+                <h3 className="font-semibold mb-2">Offences</h3>
                 <table className="table-auto border-collapse border border-gray-300 w-full">
                   <thead>
                     <tr className="bg-gray-100">
@@ -336,13 +339,13 @@ const HRAspectsModal = ({ closePopup }) => {
           </div>
 
           {/* Critical Incidents Section */}
-          <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-            <h2 className="text-lg font-bold mb-4">
+          <div className="p-6 rounded-lg shadow-md">
+            <h2 className="text-lg font-semibold mb-4">
               (D). CRITICAL INCIDENTS (FROM: 2021-01-01 TO 2024-11-22)
             </h2>
             <div>
               {/* Critical Incidents Table */}
-              <h3 className="font-bold mb-2">Commendations</h3>
+              <h3 className="font-semibold mb-2">Commendations</h3>
               <table className="table-auto border-collapse border border-gray-300 w-full">
                 <thead>
                   <tr className="bg-gray-100">
@@ -371,9 +374,9 @@ const HRAspectsModal = ({ closePopup }) => {
 
         {/* Evaluation Section */}
         <div className="p-4">
-          <div className="bg-gray-100 p-6 rounded-lg shadow-md space-y-4">
+          <div className="p-6 rounded-lg shadow-md space-y-4">
             {/* Main Header */}
-            <h2 className="text-lg font-bold text-red-600">
+            <h2 className="text-lg font-semibold text-red-600">
               * (E). EVALUATION - PERFORMANCE CRITERIA (To be evaluated by the
               Section)
             </h2>
@@ -385,7 +388,9 @@ const HRAspectsModal = ({ closePopup }) => {
             {/* Section Evaluation Criteria */}
             {criteriaList.map((criteria, index) => (
               <div key={index} className="space-y-2">
-                <h3 className="font-semibold">{`${index + 1}. ${criteria}`}</h3>
+                <h3 className="font-semisemibold">{`${
+                  index + 1
+                }. ${criteria}`}</h3>
                 <p className="text-gray-500 text-sm">
                   Please select an Employee
                 </p>
@@ -416,13 +421,15 @@ const HRAspectsModal = ({ closePopup }) => {
             ))}
 
             {/* HR Division Criteria */}
-            <h2 className="text-lg font-bold text-red-600">
+            <h2 className="text-lg font-semibold text-red-600">
               (F). EVALUATION - PERFORMANCE CRITERIA - To be evaluated by HR
               Division
             </h2>
             {hrCriteriaList.map((criteria, index) => (
               <div key={index} className="space-y-2">
-                <h3 className="font-semibold">{`${index + 8}. ${criteria}`}</h3>
+                <h3 className="font-semisemibold">{`${
+                  index + 8
+                }. ${criteria}`}</h3>
                 <div className="flex space-x-1 justify-center">
                   {[10, 9, 8, 7, 6, 5, 4, 3, 2, 1].map((value) => (
                     <button
@@ -451,11 +458,11 @@ const HRAspectsModal = ({ closePopup }) => {
 
             {/* Subtotal and Grand Total */}
             <div className="pt-4 text-right">
-              <p className="font-bold text-lg">
+              <p className="font-semibold text-lg">
                 Subtotal (Out of 70):{" "}
                 <span className="text-blue-600">{subtotal}</span>
               </p>
-              <p className="font-bold text-lg">
+              <p className="font-semibold text-lg">
                 GRAND TOTAL (Out of 100):{" "}
                 <span className="text-blue-600">{grandTotal}</span>
               </p>
@@ -465,7 +472,7 @@ const HRAspectsModal = ({ closePopup }) => {
 
         <br />
         <div className="bg-blue-100 p-6 rounded-lg shadow-md mt-6">
-          <h3 className="font-bold text-lg mb-4">
+          <h3 className="font-semibold text-lg mb-4">
             RECOMMENDATION FOR GRADE PROMOTION (Please tick if recommended)
           </h3>
           <div className="grid grid-cols-3 gap-4 items-center">
@@ -527,7 +534,7 @@ const HRAspectsModal = ({ closePopup }) => {
 
           {/* Radio buttons for evaluation discussion */}
           <div className="mt-4">
-            <label className="font-semibold text-red-600">
+            <label className="font-semisemibold text-red-600">
               * Evaluation discussed with the Employee:
             </label>
             <div className="flex space-x-4 mt-2">
@@ -556,7 +563,7 @@ const HRAspectsModal = ({ closePopup }) => {
           {/* Textareas */}
           <div className="grid grid-cols-2 gap-4 mt-4">
             <div>
-              <label className="font-semibold">
+              <label className="font-semisemibold">
                 Comments by Engineer / Executive In-charge
               </label>
               <textarea
@@ -568,7 +575,7 @@ const HRAspectsModal = ({ closePopup }) => {
               />
             </div>
             <div>
-              <label className="font-semibold">
+              <label className="font-semisemibold">
                 Special Comments by Departmental Head
               </label>
               <textarea
@@ -581,7 +588,7 @@ const HRAspectsModal = ({ closePopup }) => {
             </div>
           </div>
           <div className="mt-4">
-            <label className="font-semibold">
+            <label className="font-semisemibold">
               Recommendations by Divisional Head
             </label>
             <textarea
@@ -595,13 +602,13 @@ const HRAspectsModal = ({ closePopup }) => {
         </div>
         <br />
         {/* Special Evaluation Section */}
-        <div className="bg-gray-100  rounded-lg shadow-md">
-          <h2 className="text-lg font-bold mb-4 text-white bg-blue-600 p-2 uppercase">
+        <div className="bg-gray-50  rounded-lg shadow-md">
+          <h2 className="text-lg font-semibold mb-4 text-white bg-blue-600 p-2 uppercase">
             Special Evaluation
           </h2>
           {/* Recommendation */}
           <div className="mb-4">
-            <label className="font-semibold block mb-2">
+            <label className="font-semisemibold block mb-2">
               Evaluation History:
             </label>
             <button
@@ -614,7 +621,7 @@ const HRAspectsModal = ({ closePopup }) => {
               isOpen={isPopupOpen}
               onClose={() => setIsPopupOpen(false)}
             />
-            <label className="block font-bold mb-1">
+            <label className="block font-semibold mb-1">
               * Do you recommend the above employee to be granted with "Special
               Additional" salary increments with regard to any exceptional
               performance/characteristics demonstrated by him/her?
@@ -642,7 +649,7 @@ const HRAspectsModal = ({ closePopup }) => {
           </div>
           {/* Number of increments */}
           <div className="mb-4">
-            <label className="block font-bold mb-1">
+            <label className="block font-semibold mb-1">
               If yes, Number of special additional increments recommended:
             </label>
             <div className="flex space-x-4">
@@ -668,7 +675,7 @@ const HRAspectsModal = ({ closePopup }) => {
           </div>
           {/* Justification */}
           <div className="mb-4">
-            <label className="block font-bold mb-1">Justification</label>
+            <label className="block font-semibold mb-1">Justification</label>
             <textarea
               rows="3"
               className="w-full border border-gray-300 rounded p-2"
@@ -677,7 +684,7 @@ const HRAspectsModal = ({ closePopup }) => {
           </div>
           {/* Justification categories */}
           <div className="mb-4">
-            <label className="block font-bold mb-2">
+            <label className="block font-semibold mb-2">
               Your justification mainly falls under:
             </label>
             <div className="grid grid-cols-2 gap-4">
@@ -722,7 +729,7 @@ const HRAspectsModal = ({ closePopup }) => {
           </div>
           {/* Recommended by */}
           <div className="mb-4">
-            <label className="block font-bold mb-1">Recommended By:</label>
+            <label className="block font-semibold mb-1">Recommended By:</label>
             <input
               type="text"
               className="w-full border border-gray-300 rounded p-2"
@@ -731,7 +738,9 @@ const HRAspectsModal = ({ closePopup }) => {
           </div>
           {/* Total increments */}
           <div className="mb-4">
-            <label className="block font-bold mb-1">Total Increments:</label>
+            <label className="block font-semibold mb-1">
+              Total Increments:
+            </label>
             <input
               type="number"
               className="w-full border border-gray-300 rounded p-2"
@@ -740,7 +749,7 @@ const HRAspectsModal = ({ closePopup }) => {
           </div>
           {/* Department Head Recommendation */}
           <div className="mb-4">
-            <label className="block font-bold mb-2">
+            <label className="block font-semibold mb-2">
               Recommendation of Departmental Head
             </label>
             <div className="flex space-x-4">
@@ -771,7 +780,7 @@ const HRAspectsModal = ({ closePopup }) => {
           </div>
           {/* Division Head Approval */}
           <div className="mb-4">
-            <label className="block font-bold mb-2">
+            <label className="block font-semibold mb-2">
               Approval of Division Head
             </label>
             <div className="flex space-x-4">
@@ -801,9 +810,9 @@ const HRAspectsModal = ({ closePopup }) => {
             ></textarea>
           </div>
         </div>
-        <div className="p-8 bg-gray-100">
+        <div className="p-6 rounded-lg shadow-md">
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-lg font-bold mb-4">Training Attended</h2>
+            <h2 className="text-lg font-semibold mb-4">Training Attended</h2>
             <div className="overflow-x-auto">
               <table className="w-full table-auto border-collapse border border-gray-300">
                 <thead className="bg-gray-200">
@@ -841,8 +850,8 @@ const HRAspectsModal = ({ closePopup }) => {
                       <td
                         className={`border border-gray-300 px-4 py-2 text-center ${
                           row.status === "Not Completed"
-                            ? "text-red-600 font-bold"
-                            : "text-green-600 font-bold"
+                            ? "text-red-600 font-semibold"
+                            : "text-green-600 font-semibold"
                         }`}
                       >
                         {row.status}
@@ -857,11 +866,13 @@ const HRAspectsModal = ({ closePopup }) => {
             </div>
             {/* Training needs identification */}
             <div className="mt-6">
-              <h3 className="font-bold mb-2">Training needs Identification</h3>
+              <h3 className="font-semibold mb-2">
+                Training needs Identification
+              </h3>
               <p className="text-gray-600 mb-4">
                 Please click the button to select courses
               </p>
-              <button className="px-4 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-600">
+              <button className="px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600">
                 Course details
               </button>
             </div>
@@ -890,7 +901,9 @@ const HRAspectsModal = ({ closePopup }) => {
             </div>
             {/* Additional training requirement */}
             <div className="mt-6">
-              <h3 className="font-bold mb-2">Any other training requirement</h3>
+              <h3 className="font-semibold mb-2">
+                Any other training requirement
+              </h3>
               <textarea
                 className="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 rows="4"
