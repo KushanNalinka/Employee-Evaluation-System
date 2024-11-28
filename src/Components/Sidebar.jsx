@@ -103,7 +103,7 @@ const Sidebar = () => {
                 >
                   {/* <FontAwesomeIcon icon={faUser} className="text-[24px]" /> */}
                   <span className="inline-block w-2.5 h-2.5 rounded-full bg-white"></span>
-                  <span className="text-[14px]">Non-Executive Employee</span> 
+                  <span className="text-[14px]">Non-Executive Employee</span>
                 </button>
               </li>
             </ul>
