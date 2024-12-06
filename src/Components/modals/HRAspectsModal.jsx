@@ -105,7 +105,7 @@ const HRAspectsModal = ({ closePopup, toggleModal }) => {
         style={{ width: "1250px", maxWidth: "100%" }} onClick={toggleModal}
       >
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-bold">HR Aspects</h2>
+          <h2 className="text-xl font-bold">HR Aspects Score</h2>
           <button
             className="text-red-500 text-2xl font-semibold"
             onClick={closePopup}
