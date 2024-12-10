@@ -116,125 +116,154 @@ const HRAspectsModal = ({ closePopup, toggleModal }) => {
 
         {/* Attendance Summary Section */}
         <div className="p-4 space-y-6">
-          {/* Attendance Summary Section */}
+        <div className="p-6 rounded-lg shadow-md space-y-4">
+  <h2 className="text-lg font-semibold">
+    (B). ATTENDANCE SUMMARY (FROM: 2021-01-01 TO 2024-11-25)
+  </h2>
+  <div className="grid grid-cols-3 gap-4">
+    {/* Table 1 */}
+    <table className="table-auto border-collapse border border-gray-300">
+      <thead>
+        <tr className="bg-gray-200">
+          <th className="border border-gray-300 px-4 py-2 text-left">Description</th>
+          <th className="border border-gray-300 px-4 py-2 text-center">Total</th>
+          <th className="border border-gray-300 px-4 py-2 text-center">Taken</th>
+          <th className="border border-gray-300 px-4 py-2 text-center">%</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td className="border border-gray-300 px-4 py-2">Annual Leave</td>
+          <td className="border border-gray-300 px-4 py-2 text-center">14</td>
+          <td className="border border-gray-300 px-4 py-2 text-center">11</td>
+          <td className="border border-gray-300 px-4 py-2 text-center">79%</td>
+        </tr>
+        <tr>
+          <td className="border border-gray-300 px-4 py-2">Casual Leave</td>
+          <td className="border border-gray-300 px-4 py-2 text-center">7</td>
+          <td className="border border-gray-300 px-4 py-2 text-center">5</td>
+          <td className="border border-gray-300 px-4 py-2 text-center">71%</td>
+        </tr>
+        <tr>
+          <td className="border border-gray-300 px-4 py-2">Sick Leave</td>
+          <td className="border border-gray-300 px-4 py-2 text-center">21</td>
+          <td className="border border-gray-300 px-4 py-2 text-center">5</td>
+          <td className="border border-gray-300 px-4 py-2 text-center">24%</td>
+        </tr>
+      </tbody>
+    </table>
 
-          {/* Attendance Summary Section */}
+    {/* Table 2 */}
+    <table className="table-auto border-collapse border border-gray-300">
+      <thead>
+        <tr className="bg-gray-200">
+          <th className="border border-gray-300 px-4 py-2 text-left">Leave Type</th>
+          <th className="border border-gray-300 px-4 py-2 text-center">Days</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td className="border border-gray-300 px-4 py-2">Nopay</td>
+          <td className="border border-gray-300 px-4 py-2 text-center">15</td>
+        </tr>
+        <tr>
+          <td className="border border-gray-300 px-4 py-2">Not Entered</td>
+          <td className="border border-gray-300 px-4 py-2 text-center">1</td>
+        </tr>
+      </tbody>
+    </table>
 
-          {/* Attendance Summary */}
-          <div className="p-6 rounded-lg shadow-md space-y-4">
-            <h2 className="text-lg font-semibold">
-              (B). ATTENDANCE SUMMARY (FROM: 2021-01-01 TO 2024-11-25)
-            </h2>
-            <div className="flex space-x-6">
-              {/* Left Table */}
-              <table className="table-auto border-collapse border border-gray-300 w-2/3">
-                <thead>
-                  <tr className="bg-gray-200">
-                    <th className="border border-gray-300 px-4 py-2 text-left">
-                      Description
-                    </th>
-                    <th className="border border-gray-300 px-4 py-2 text-center">
-                      Total
-                    </th>
-                    <th className="border border-gray-300 px-4 py-2 text-center">
-                      Taken
-                    </th>
-                    <th className="border border-gray-300 px-4 py-2 text-center">
-                      Balance
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2">
-                      Annual Leave
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2 text-center">
-                      14
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2 text-center">
-                      13.5
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2 text-center">
-                      0.5
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2">
-                      Casual Leave
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2 text-center">
-                      7
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2 text-center">
-                      6.5
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2 text-center">
-                      0.5
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2">
-                      Sick Leave
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2 text-center">
-                      21
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2 text-center">
-                      20.5
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2 text-center">
-                      0.5
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+    {/* Table 3 */}
+    <table className="table-auto border-collapse border border-gray-300">
+      <thead>
+        <tr className="bg-gray-200">
+          <th className="border border-gray-300 px-4 py-2 text-center">Criterion</th>
+          <th className="border border-gray-300 px-4 py-2 text-center">Allocated Max Score</th>
+          <th className="border border-gray-300 px-4 py-2 text-center">Actual Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td className="border border-gray-300 px-4 py-2 text-center">Between 0-50%</td>
+          <td className="border border-gray-300 px-4 py-2 text-center">4</td>
+          <td className="border border-gray-300 px-4 py-2 text-center">2</td>
+        </tr>
+        <tr>
+          <td className="border border-gray-300 px-4 py-2 text-center">Between 50-75%</td>
+          <td className="border border-gray-300 px-4 py-2 text-center">3</td>
+          <td className="border border-gray-300 px-4 py-2 text-center">2</td>
+        </tr>
+        <tr>
+          <td className="border border-gray-300 px-4 py-2 text-center">Between 75-100%</td>
+          <td className="border border-gray-300 px-4 py-2 text-center">2</td>
+          <td className="border border-gray-300 px-4 py-2 text-center">1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-              {/* Right Summary */}
-              <div className="w-1/3 space-y-4">
-                <table className="table-auto border-collapse border border-gray-300 w-full">
-                  <thead>
-                    <tr className="bg-gray-200">
-                      <th className="border border-gray-300 px-4 py-2 text-left">
-                        Leave Type
-                      </th>
-                      <th className="border border-gray-300 px-4 py-2 text-center">
-                        Days
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td className="border border-gray-300 px-4 py-2">
-                        Nopay
-                      </td>
-                      <td className="border border-gray-300 px-4 py-2 text-center"></td>
-                    </tr>
-                    <tr>
-                      <td className="border border-gray-300 px-4 py-2">
-                        Not Entered
-                      </td>
-                      <td className="border border-gray-300 px-4 py-2 text-center"></td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div className="space-y-1">
-                  <p>
-                    <strong>Short leave Taken:</strong> 6
-                  </p>
-                  <p>
-                    <strong>Late Occasions:</strong> 0
-                  </p>
-                  <p>
-                    <strong>Extra Hours:</strong> 1181.00
-                  </p>
-                  <p>
-                    <strong>Years in present grade:</strong>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+  {/* Additional Summary */}
+  <div className="grid grid-cols-3 gap-4 mt-4">
+    {/* Short Leave Taken */}
+    <table className="table-auto border-collapse border border-gray-300">
+      <thead>
+        <tr className="bg-gray-200">
+          <th className="border border-gray-300 px-4 py-2 text-left">Short Leave Taken</th>
+          <th className="border border-gray-300 px-4 py-2 text-center">Total</th>
+          <th className="border border-gray-300 px-4 py-2 text-center">Taken</th>
+          <th className="border border-gray-300 px-4 py-2 text-center">%</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td className="border border-gray-300 px-4 py-2">Short Leave</td>
+          <td className="border border-gray-300 px-4 py-2 text-center">24</td>
+          <td className="border border-gray-300 px-4 py-2 text-center">14</td>
+          <td className="border border-gray-300 px-4 py-2 text-center">58%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    {/* Late Occasions */}
+    <table className="table-auto border-collapse border border-gray-300">
+      <thead>
+        <tr className="bg-gray-200">
+          <th className="border border-gray-300 px-4 py-2 text-left">Late Occasions</th>
+          <th className="border border-gray-300 px-4 py-2 text-center">Days</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td className="border border-gray-300 px-4 py-2">Late Occasions</td>
+          <td className="border border-gray-300 px-4 py-2 text-center">13</td>
+        </tr>
+      </tbody>
+    </table>
+
+    {/* Extra Hours */}
+    <table className="table-auto border-collapse border border-gray-300">
+      <thead>
+        <tr className="bg-gray-200">
+          <th className="border border-gray-300 px-4 py-2 text-left">Extra Hours / Normal Hours</th>
+          <th className="border border-gray-300 px-4 py-2 text-center">%</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td className="border border-gray-300 px-4 py-2">Percentage</td>
+          <td className="border border-gray-300 px-4 py-2 text-center">20%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  {/* Final Score */}
+  <div className="mt-4">
+    <p>
+      <strong>Total Score:</strong> 8 / 15
+    </p>
+  </div>
+</div>
 
           {/* Disciplinary Actions Section */}
           <div className="p-6 rounded-lg shadow-md">
