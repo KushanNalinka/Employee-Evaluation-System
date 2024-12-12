@@ -286,12 +286,17 @@ const CompetenciesModal = ({ closePopup, toggleModal }) => {
             </div>
           ))}
         </div>
-        <button
-          className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
-          onClick={closePopup}
-        >
-          Close
-        </button>
+        <div className="flex mt-6">
+          <button className="bg-blue-500 text-white px-4 py-2 rounded mr-2">
+            Save
+          </button>
+          <button
+            className="bg-red-500 text-white px-4 py-2 rounded"
+            onClick={closePopup}
+          >
+            Close
+          </button>
+        </div>
       </div>
     </div>
   );

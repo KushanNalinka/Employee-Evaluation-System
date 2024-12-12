@@ -102,7 +102,8 @@ const HRAspectsModal = ({ closePopup, toggleModal }) => {
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
       <div
         className="bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-4xl overflow-y-auto max-h-[90vh]"
-        style={{ width: "1250px", maxWidth: "100%" }} onClick={toggleModal}
+        style={{ width: "1250px", maxWidth: "100%" }}
+        onClick={toggleModal}
       >
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold">HR Aspects Score</h2>
@@ -831,12 +832,17 @@ const HRAspectsModal = ({ closePopup, toggleModal }) => {
           </div>
         </div>
         {/* Close Button */}
-        <button
-          className="mt-6 bg-red-500 text-white px-4 py-2 rounded"
-          onClick={closePopup}
-        >
-          Close
-        </button>
+        <div className="flex mt-6">
+          <button className="bg-blue-500 text-white px-4 py-2 rounded mr-2">
+            Save
+          </button>
+          <button
+            className="bg-red-500 text-white px-4 py-2 rounded"
+            onClick={closePopup}
+          >
+            Close
+          </button>
+        </div>
       </div>
     </div>
   );

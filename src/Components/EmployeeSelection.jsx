@@ -328,7 +328,7 @@ const EmployeeSelection = () => {
               </select>
             </div>
             {/* PCR Attachments */}
-            <div className="mt-1">
+            {/* <div className="mt-1">
               <label className="font-medium text-gray-700 block mb-2">
                 PCR Attachments:
               </label>
@@ -336,7 +336,7 @@ const EmployeeSelection = () => {
                 type="file"
                 className="block w-full text-sm text-gray-700 border border-gray-300 rounded-lg p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500"
               />
-            </div>
+            </div> */}
           </div>
         </div>
 

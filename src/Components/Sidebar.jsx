@@ -14,6 +14,7 @@ import Swal from "sweetalert2";
 const Sidebar = () => {
   const navigate = useNavigate();
   const location = useLocation(); // Access the current route
+  const [isKpiMenuOpen, setIsKpiMenuOpen] = useState(false); // For KPI menu
   const [isEmployeeMenuOpen, setIsEmployeeMenuOpen] = useState(false);
 
   // Keep the submenu open if the current route matches the submenu's path
@@ -66,7 +67,7 @@ const Sidebar = () => {
             {/* Left Section with Icon and Text */}
             <div className="flex items-center gap-2">
               <FontAwesomeIcon icon={faUserGroup} className="text-lg" />
-              <span className="text-[18px]">Employees</span>
+              <span className="text-[18px]">Employee Evalution</span>
             </div>
             {/* Right Section with Up/Down Icon */}
             <FontAwesomeIcon
@@ -89,7 +90,7 @@ const Sidebar = () => {
                   {/* <FontAwesomeIcon icon={faUser} className="text-[24px]" />
                   Executive Employee */}
                   <span className="inline-block w-2.5 h-2.5 rounded-full bg-white"></span>
-                  <span className="text-[14px]">Executive Employee</span>
+                  <span className="text-[14px]">Executive</span>
                 </button>
               </li>
               <li>
@@ -103,7 +104,41 @@ const Sidebar = () => {
                 >
                   {/* <FontAwesomeIcon icon={faUser} className="text-[24px]" /> */}
                   <span className="inline-block w-2.5 h-2.5 rounded-full bg-white"></span>
-                  <span className="text-[14px]">Non-Executive Employee</span>
+                  <span className="text-[14px]">Non-Executive</span>
+                </button>
+              </li>
+            </ul>
+          )}
+        </li>
+
+        {/* KPI ENTRY Menu */}
+        <li className="mb-6">
+          <button
+            className="flex items-center justify-between text-base font-medium hover:text-yellow-400 w-full"
+            onClick={() => setIsKpiMenuOpen(!isKpiMenuOpen)}
+          >
+            <div className="flex items-center gap-2">
+              <FontAwesomeIcon icon={faUserGroup} className="text-lg" />
+              <span className="text-[18px]">KPI Entry</span>
+            </div>
+            <FontAwesomeIcon
+              icon={isKpiMenuOpen ? faCaretUp : faCaretDown}
+              className="text-sm"
+            />
+          </button>
+          {isKpiMenuOpen && (
+            <ul className="pl-8 mt-4">
+              <li className="mb-4">
+                <button
+                  className={`flex items-center gap-2 text-xs font-medium w-full ${
+                    location.pathname === "/kpi-entry"
+                      ? "text-yellow-400"
+                      : "hover:text-yellow-400"
+                  }`}
+                  onClick={() => navigate("/kpi-entry")}
+                >
+                  <span className="inline-block w-2.5 h-2.5 rounded-full bg-white"></span>
+                  <span className="text-[14px]">KPI</span>
                 </button>
               </li>
             </ul>
