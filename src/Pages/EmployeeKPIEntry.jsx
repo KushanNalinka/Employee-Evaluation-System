@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import Sidebar from '../Components/Sidebar';
-import Header from '../Components/Header';
-import EXecutiveKPI from '../Components/EXecutiveKPI';
+import React, { useState } from "react";
+import Sidebar from "../Components/Sidebar";
+import Header from "../Components/Header";
+import EXecutiveKPI from "../Components/EXecutiveKPI";
 
 const EmployeeKPIEntry = () => {
   const [isModalOpen, setIsModalOpen] = useState(true); // Modal is open by default
@@ -23,8 +23,11 @@ const EmployeeKPIEntry = () => {
         {/* Body Content */}
         <div className="flex flex-row p-4 gap-4">
           {/* Left Section */}
-          <div className="flex flex-col flex-1 gap-4">
+          {/* <div className="flex flex-col flex-1 gap-4">
             {isModalOpen && <EXecutiveKPI closePopup={closePopup} />}
+          </div> */}
+          <div className="flex flex-col flex-1 gap-4">
+            <EXecutiveKPI />
             {/* <EmployeeDetails /> */}
           </div>
         </div>

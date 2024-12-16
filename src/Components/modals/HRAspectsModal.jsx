@@ -126,112 +126,246 @@ const HRAspectsModal = ({ closePopup, toggleModal }) => {
             <h2 className="text-lg font-semibold">
               (B). ATTENDANCE SUMMARY (FROM: 2021-01-01 TO 2024-11-25)
             </h2>
-            <div className="flex space-x-6">
-              {/* Left Table */}
-              <table className="table-auto border-collapse border border-gray-300 w-2/3">
-                <thead>
-                  <tr className="bg-gray-200">
-                    <th className="border border-gray-300 px-4 py-2 text-left">
-                      Description
-                    </th>
-                    <th className="border border-gray-300 px-4 py-2 text-center">
-                      Total
-                    </th>
-                    <th className="border border-gray-300 px-4 py-2 text-center">
-                      Taken
-                    </th>
-                    <th className="border border-gray-300 px-4 py-2 text-center">
-                      Balance
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2">
-                      Annual Leave
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2 text-center">
-                      14
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2 text-center">
-                      13.5
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2 text-center">
-                      0.5
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2">
-                      Casual Leave
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2 text-center">
-                      7
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2 text-center">
-                      6.5
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2 text-center">
-                      0.5
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2">
-                      Sick Leave
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2 text-center">
-                      21
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2 text-center">
-                      20.5
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2 text-center">
-                      0.5
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-
-              {/* Right Summary */}
-              <div className="w-1/3 space-y-4">
-                <table className="table-auto border-collapse border border-gray-300 w-full">
+            <div className="grid grid-cols-2 gap-4">
+              {/* Left Side Tables */}
+              <div className="space-y-4">
+                {/* Table 1 */}
+                <table className="table-auto w-[200px] border-collapse border border-gray-300">
                   <thead>
                     <tr className="bg-gray-200">
-                      <th className="border border-gray-300 px-4 py-2 text-left">
-                        Leave Type
+                      <th className="border px-4 py-2 text-left">
+                        Description
                       </th>
-                      <th className="border border-gray-300 px-4 py-2 text-center">
-                        Days
+                      <th className="border px-4 py-2 text-center">Total</th>
+                      <th className="border px-4 py-2 text-center">Taken</th>
+                      <th className="border px-4 py-2 text-center">%</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border px-4 py-2">Annual Leave</td>
+                      <td className="border px-4 py-2 text-center">14</td>
+                      <td className="border px-4 py-2 text-center">11</td>
+                      <td className="border px-4 py-2 text-center">79%</td>
+                    </tr>
+                    <tr>
+                      <td className="border px-4 py-2">Casual Leave</td>
+                      <td className="border px-4 py-2 text-center">7</td>
+                      <td className="border px-4 py-2 text-center">5</td>
+                      <td className="border px-4 py-2 text-center">71%</td>
+                    </tr>
+                    <tr>
+                      <td className="border px-4 py-2">Sick Leave</td>
+                      <td className="border px-4 py-2 text-center">21</td>
+                      <td className="border px-4 py-2 text-center">5</td>
+                      <td className="border px-4 py-2 text-center">24%</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                {/* Table 2 */}
+                <table className="table-auto border-collapse border border-gray-300">
+                  <thead>
+                    <tr className="bg-gray-200">
+                      <th className="border px-4 py-2 text-left">Leave Type</th>
+                      <th className="border px-4 py-2 text-center">Days</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border px-4 py-2">Nopay</td>
+                      <td className="border px-4 py-2 text-center">1</td>
+                    </tr>
+                    <tr>
+                      <td className="border px-4 py-2">Not Entered</td>
+                      <td className="border px-4 py-2 text-center">1</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                {/* Table 3 */}
+                <table className="table-auto border-collapse border border-gray-300">
+                  <thead>
+                    <tr className="bg-gray-200">
+                      <th className="border px-4 py-2 text-left"></th>
+                      <th className="border px-4 py-2 text-left">Total</th>
+                      <th className="border px-4 py-2 text-center">Taken</th>
+                      <th className="border px-4 py-2 text-center">%</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border px-4 py-2">Short Leave Taken</td>
+                      <td className="border px-4 py-2 text-center">24</td>
+                      <td className="border px-4 py-2 text-center">24</td>
+                      <td className="border px-4 py-2 text-center">58%</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                {/* Table 4 */}
+                <table className="table-auto border-collapse border border-gray-300">
+                  <thead>
+                    <tr className="bg-gray-200">
+                      <th className="border px-4 py-2 text-left"></th>
+                      <th className="border px-4 py-2 text-center">Days</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border px-4 py-2">Late Occasions</td>
+                      <td className="border px-4 py-2 text-center">13</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                {/* Table 5 */}
+                <table className="table-auto border-collapse border border-gray-300">
+                  <thead>
+                    <tr className="bg-gray-200">
+                      <th className="border px-4 py-2 text-left"></th>
+                      <th className="border px-4 py-2 text-center">%</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border px-4 py-2">
+                        Extra Hours/Normal Hours
+                      </td>
+                      <td className="border px-4 py-2 text-center">20</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Right Side Tables */}
+              <div className="space-y-4">
+                {/* Table 6 */}
+                <table className="table-auto w-[200px] border-collapse border border-gray-300">
+                  <thead>
+                    <tr className="bg-gray-200">
+                      <th className="border px-4 py-2 text-left">
+                        Actual Score
+                      </th>
+                      <th className="border px-4 py-2 text-center">
+                        Alocated Max Score
                       </th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="border border-gray-300 px-4 py-2">
-                        Nopay
+                      <td
+                        className="border px-4 py-2"
+                        style={{ backgroundColor: "rgb(253, 242, 233)" }}
+                      >
+                        2
                       </td>
-                      <td className="border border-gray-300 px-4 py-2 text-center"></td>
+                      <td className="border px-4 py-2 text-center">4</td>
                     </tr>
                     <tr>
-                      <td className="border border-gray-300 px-4 py-2">
-                        Not Entered
+                      <td
+                        className="border px-4 py-2"
+                        style={{ backgroundColor: "rgb(253, 242, 233)" }}
+                      >
+                        1
                       </td>
-                      <td className="border border-gray-300 px-4 py-2 text-center"></td>
+                      <td className="border px-4 py-2 text-center">2</td>
+                    </tr>
+                    <tr>
+                      <td
+                        className="border px-4 py-2"
+                        style={{ backgroundColor: "rgb(253, 242, 233)" }}
+                      >
+                        1
+                      </td>
+                      <td className="border px-4 py-2 text-center">1</td>
                     </tr>
                   </tbody>
                 </table>
-                <div className="space-y-1">
-                  <p>
-                    <strong>Short leave Taken:</strong> 6
-                  </p>
-                  <p>
-                    <strong>Late Occasions:</strong> 0
-                  </p>
-                  <p>
-                    <strong>Extra Hours:</strong> 1181.00
-                  </p>
-                  <p>
-                    <strong>Years in present grade:</strong>
-                  </p>
+
+                {/* Table 7 */}
+                <div className="relative pt-8">
+                  <table className="table-auto w-[200px] border-collapse border border-gray-300">
+                    <thead></thead>
+                    <tbody>
+                      <tr>
+                        <td
+                          className="border px-4 py-2"
+                          style={{ backgroundColor: "rgb(253, 242, 233)" }}
+                        >
+                          0
+                        </td>
+                        <td className="border px-4 py-2 text-center">2</td>
+                      </tr>
+                      <tr>
+                        <td
+                          className="border px-4 py-2"
+                          style={{ backgroundColor: "rgb(253, 242, 233)" }}
+                        >
+                          0
+                        </td>
+                        <td className="border px-4 py-2 text-center">1</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="relative pt-10">
+                  {/* Table 8 */}
+                  <table className="table-auto w-[200px] border-collapse border border-gray-300 mb-6">
+                    <thead></thead>
+                    <tbody>
+                      <tr>
+                        <td
+                          className="border px-4 py-2"
+                          style={{ backgroundColor: "rgb(253, 242, 233)" }}
+                        >
+                          1
+                        </td>
+                        <td className="border px-4 py-2 text-center">2</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                {/* Table 9 */}
+                <div className="relative pt-10">
+                  <table className="table-auto w-[200px] border-collapse border border-gray-300">
+                    <thead></thead>
+                    <tbody>
+                      <tr>
+                        <td
+                          className="border px-4 py-2"
+                          style={{ backgroundColor: "rgb(253, 242, 233)" }}
+                        >
+                          0
+                        </td>
+                        <td className="border px-4 py-2 text-center">1</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Table 10 */}
+                <div className="relative pt-10">
+                  <table className="table-auto w-[200px] border-collapse border border-gray-300">
+                    <thead></thead>
+                    <tbody>
+                      <tr>
+                        <td
+                          className="border px-4 py-2"
+                          style={{ backgroundColor: "rgb(253, 242, 233)" }}
+                        >
+                          2
+                        </td>
+                        <td className="border px-4 py-2 text-center">2</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div className="text-right">
+                  <strong>Total Actual Score: 7</strong>
+                  <br />
+                  <strong>Total Allocated Max Score: 15</strong>
                 </div>
               </div>
             </div>

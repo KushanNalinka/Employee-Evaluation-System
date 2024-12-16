@@ -43,32 +43,6 @@ const CompetenciesScore = () => {
         <h3 className="text-lg font-bold text-gray-700 mb-4">
           Career Development Score
         </h3>
-        {/* <table className="table-auto w-full border">
-          <thead>
-            <tr className="bg-gray-100 text-left">
-              <th className="p-2 border">Criteria</th>
-              <th className="p-2 border">Superior Appraisal</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="p-2 border">Career Development</td>
-              <td className="p-2 border text-center">55</td>
-            </tr>
-            <tr>
-              <td className="p-2 border">Career Development</td>
-              <td className="p-2 border text-center">75</td>
-            </tr>
-            <tr>
-              <td className="p-2 border">Career Development</td>
-              <td className="p-2 border text-center">80</td>
-            </tr>
-            <tr>
-              <td className="p-2 border">Career Development</td>
-              <td className="p-2 border text-center">70</td>
-            </tr>
-          </tbody>
-        </table> */}
         <table className="w-full border-collapse border border-gray-300 text-sm">
           <thead className="bg-gray-100">
             <tr>
@@ -197,57 +171,6 @@ const CompetenciesScore = () => {
         </table>
 
         <h3 className="text-lg font-bold text-gray-700 mb-4"></h3>
-        {/* <table className="table-auto w-full border">
-          <thead>
-            <tr className="bg-gray-100 text-left">
-              <th className="p-2 border">Leave Type</th>
-              <th className="p-2 border">Days</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="p-2 border">Nopay</td>
-              <td className="p-2 border text-left">15</td>
-            </tr>
-            <tr>
-              <td className="p-2 border">No Entered</td>
-              <td className="p-2 border text-left">1</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3 className="text-lg font-bold text-gray-700 mb-4"></h3>
-        <table className="table-auto w-full border">
-          <thead>
-            <tr className="bg-gray-100 text-left">
-              <th className="p-2 border"></th>
-              <th className="p-2 border">Days</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="p-2 border">Late Occasions</td>
-              <td className="p-2 border text-left">13</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3 className="text-lg font-bold text-gray-700 mb-4"></h3>
-        <table className="table-auto w-full border">
-          <thead>
-            <tr className="bg-gray-100 text-left">
-              <th className="p-2 border"></th>
-              <th className="p-2 border">%</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="p-2 border">Extra Hours / Normal Hours</td>
-              <td className="p-2 border text-left">20</td>
-            </tr>
-          </tbody>
-        </table> */}
-
         <div className="flex space-x-8">
           {/* Table 1 */}
           <table className="table-auto w-1/3 border text-lg">
@@ -284,7 +207,6 @@ const CompetenciesScore = () => {
               </tr>
             </tbody>
           </table>
-
           {/* Table 3 */}
           <table className="table-auto w-1/3 border text-lg">
             <thead>

@@ -10,8 +10,8 @@ const EvaluationScore = () => {
             <th className="p-2 border"></th>
             <th className="p-2 border">KPI</th>
             <th className="p-2 border">Competencies</th>
-            <th className="p-2 border">Career Development</th>
             <th className="p-2 border">HR Aspects</th>
+            <th className="p-2 border">Career Development</th>
             <th className="p-2 border">Total</th>
           </tr>
         </thead>
@@ -20,16 +20,16 @@ const EvaluationScore = () => {
             <td className="p-2 border text-center">Allocations</td>
             <td className="p-2 border text-center">40%</td>
             <td className="p-2 border text-center">40%</td>
-            <td className="p-2 border text-center">5%</td>
             <td className="p-2 border text-center">15%</td>
+            <td className="p-2 border text-center">5%</td>
             <td className="p-2 border text-center">100</td>
           </tr>
           <tr>
             <td className="p-2 border text-center">Actual</td>
             <td className="p-2 border text-center">24</td>
             <td className="p-2 border text-center">20</td>
-            <td className="p-2 border text-center">2</td>
             <td className="p-2 border text-center">8</td>
+            <td className="p-2 border text-center">2</td>
             <td className="p-2 border text-center">54</td>
           </tr>
         </tbody>
