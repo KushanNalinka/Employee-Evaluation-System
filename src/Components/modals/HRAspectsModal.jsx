@@ -117,62 +117,9 @@ const HRAspectsModal = ({ closePopup, toggleModal }) => {
 
         {/* Attendance Summary Section */}
         <div className="p-4 space-y-6">
-        <div className="p-6 rounded-lg shadow-md space-y-4">
-  <h2 className="text-lg font-semibold">
-    (B). ATTENDANCE SUMMARY (FROM: 2021-01-01 TO 2024-11-25)
-  </h2>
-  <div className="grid grid-cols-3 gap-4">
-    {/* Table 1 */}
-    <table className="table-auto border-collapse border border-gray-300">
-      <thead>
-        <tr className="bg-gray-200">
-          <th className="border border-gray-300 px-4 py-2 text-left">Description</th>
-          <th className="border border-gray-300 px-4 py-2 text-center">Total</th>
-          <th className="border border-gray-300 px-4 py-2 text-center">Taken</th>
-          <th className="border border-gray-300 px-4 py-2 text-center">%</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td className="border border-gray-300 px-4 py-2">Annual Leave</td>
-          <td className="border border-gray-300 px-4 py-2 text-center">14</td>
-          <td className="border border-gray-300 px-4 py-2 text-center">11</td>
-          <td className="border border-gray-300 px-4 py-2 text-center">79%</td>
-        </tr>
-        <tr>
-          <td className="border border-gray-300 px-4 py-2">Casual Leave</td>
-          <td className="border border-gray-300 px-4 py-2 text-center">7</td>
-          <td className="border border-gray-300 px-4 py-2 text-center">5</td>
-          <td className="border border-gray-300 px-4 py-2 text-center">71%</td>
-        </tr>
-        <tr>
-          <td className="border border-gray-300 px-4 py-2">Sick Leave</td>
-          <td className="border border-gray-300 px-4 py-2 text-center">21</td>
-          <td className="border border-gray-300 px-4 py-2 text-center">5</td>
-          <td className="border border-gray-300 px-4 py-2 text-center">24%</td>
-        </tr>
-      </tbody>
-    </table>
+          {/* Attendance Summary Section */}
 
-    {/* Table 2 */}
-    <table className="table-auto border-collapse border border-gray-300">
-      <thead>
-        <tr className="bg-gray-200">
-          <th className="border border-gray-300 px-4 py-2 text-left">Leave Type</th>
-          <th className="border border-gray-300 px-4 py-2 text-center">Days</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td className="border border-gray-300 px-4 py-2">Nopay</td>
-          <td className="border border-gray-300 px-4 py-2 text-center">15</td>
-        </tr>
-        <tr>
-          <td className="border border-gray-300 px-4 py-2">Not Entered</td>
-          <td className="border border-gray-300 px-4 py-2 text-center">1</td>
-        </tr>
-      </tbody>
-    </table>
+          {/* Attendance Summary Section */}
 
           {/* Attendance Summary */}
           <div className="p-6 rounded-lg shadow-md space-y-4">
@@ -215,6 +162,7 @@ const HRAspectsModal = ({ closePopup, toggleModal }) => {
                     </tr>
                   </tbody>
                 </table>
+
 
                 {/* Table 2 */}
                 <table className="table-auto border-collapse border border-gray-300">
@@ -303,10 +251,12 @@ const HRAspectsModal = ({ closePopup, toggleModal }) => {
                       <th className="border px-4 py-2 text-center">
                         Alocated Max Score
                       </th>
+
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
+
                       <td
                         className="border px-4 py-2"
                         style={{ backgroundColor: "rgb(253, 242, 233)" }}
@@ -331,10 +281,12 @@ const HRAspectsModal = ({ closePopup, toggleModal }) => {
                       >
                         1
                       </td>
+
                       <td className="border px-4 py-2 text-center">1</td>
                     </tr>
                   </tbody>
                 </table>
+
 
                 {/* Table 7 */}
                 <div className="relative pt-8">
@@ -362,6 +314,7 @@ const HRAspectsModal = ({ closePopup, toggleModal }) => {
                     </tbody>
                   </table>
                 </div>
+
 
                 <div className="relative pt-10">
                   {/* Table 8 */}
@@ -397,6 +350,7 @@ const HRAspectsModal = ({ closePopup, toggleModal }) => {
                     </tbody>
                   </table>
                 </div>
+
 
                 {/* Table 10 */}
                 <div className="relative pt-10">
