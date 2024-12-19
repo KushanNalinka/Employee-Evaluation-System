@@ -163,6 +163,7 @@ const HRAspectsModal = ({ closePopup, toggleModal }) => {
                   </tbody>
                 </table>
 
+
                 {/* Table 2 */}
                 <table className="table-auto border-collapse border border-gray-300">
                   <thead>
@@ -250,10 +251,12 @@ const HRAspectsModal = ({ closePopup, toggleModal }) => {
                       <th className="border px-4 py-2 text-center">
                         Alocated Max Score
                       </th>
+
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
+
                       <td
                         className="border px-4 py-2"
                         style={{ backgroundColor: "rgb(253, 242, 233)" }}
@@ -278,10 +281,12 @@ const HRAspectsModal = ({ closePopup, toggleModal }) => {
                       >
                         1
                       </td>
+
                       <td className="border px-4 py-2 text-center">1</td>
                     </tr>
                   </tbody>
                 </table>
+
 
                 {/* Table 7 */}
                 <div className="relative pt-8">
@@ -309,6 +314,7 @@ const HRAspectsModal = ({ closePopup, toggleModal }) => {
                     </tbody>
                   </table>
                 </div>
+
 
                 <div className="relative pt-10">
                   {/* Table 8 */}
@@ -345,6 +351,7 @@ const HRAspectsModal = ({ closePopup, toggleModal }) => {
                   </table>
                 </div>
 
+
                 {/* Table 10 */}
                 <div className="relative pt-10">
                   <table className="table-auto w-[200px] border-collapse border border-gray-300">
@@ -370,6 +377,7 @@ const HRAspectsModal = ({ closePopup, toggleModal }) => {
               </div>
             </div>
           </div>
+
 
           {/* Disciplinary Actions Section */}
           <div className="p-6 rounded-lg shadow-md">
