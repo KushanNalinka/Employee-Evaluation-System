@@ -1,12 +1,12 @@
-import React from 'react';
-import Sidebar from '../Components/Sidebar';
-import Header from '../Components/Header';
-import EmployeeDetails from '../Components/EmployeeDetails';
-import EvaluationScore from '../Components/EvaluationScore';
-import KPIScore from '../Components/KPIScore';
-import CompetenciesScore from '../Components/CompetenciesScore';
-import EmployeeSelection from '../Components/EmployeeSelection';
-import CategoryTabs from '../Components/CategoryTabNonExc';
+import React from "react";
+import Sidebar from "../Components/Sidebar";
+import Header from "../Components/Header";
+import EmployeeDetails from "../Components/EmployeeDetails";
+import EvaluationScore from "../Components/EvaluationScore";
+import KPIScore from "../Components/KPIScore";
+import CompetenciesScore from "../Components/CompetenciesScore";
+import EmployeeSelection from "../Components/EmployeeSelection";
+import CategoryTabs from "../Components/CategoryTabNonExc";
 
 const ExecutivePage = () => {
   return (

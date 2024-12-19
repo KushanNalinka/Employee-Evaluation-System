@@ -102,7 +102,8 @@ const HRAspectsModal = ({ closePopup, toggleModal }) => {
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
       <div
         className="bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-4xl overflow-y-auto max-h-[90vh]"
-        style={{ width: "1250px", maxWidth: "100%" }} onClick={toggleModal}
+        style={{ width: "1250px", maxWidth: "100%" }}
+        onClick={toggleModal}
       >
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold">HR Aspects Score</h2>
@@ -173,97 +174,256 @@ const HRAspectsModal = ({ closePopup, toggleModal }) => {
       </tbody>
     </table>
 
-    {/* Table 3 */}
-    <table className="table-auto border-collapse border border-gray-300">
-      <thead>
-        <tr className="bg-gray-200">
-          <th className="border border-gray-300 px-4 py-2 text-center">Criterion</th>
-          <th className="border border-gray-300 px-4 py-2 text-center">Allocated Max Score</th>
-          <th className="border border-gray-300 px-4 py-2 text-center">Actual Score</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td className="border border-gray-300 px-4 py-2 text-center">Between 0-50%</td>
-          <td className="border border-gray-300 px-4 py-2 text-center">4</td>
-          <td className="border border-gray-300 px-4 py-2 text-center">2</td>
-        </tr>
-        <tr>
-          <td className="border border-gray-300 px-4 py-2 text-center">Between 50-75%</td>
-          <td className="border border-gray-300 px-4 py-2 text-center">3</td>
-          <td className="border border-gray-300 px-4 py-2 text-center">2</td>
-        </tr>
-        <tr>
-          <td className="border border-gray-300 px-4 py-2 text-center">Between 75-100%</td>
-          <td className="border border-gray-300 px-4 py-2 text-center">2</td>
-          <td className="border border-gray-300 px-4 py-2 text-center">1</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+          {/* Attendance Summary */}
+          <div className="p-6 rounded-lg shadow-md space-y-4">
+            <h2 className="text-lg font-semibold">
+              (B). ATTENDANCE SUMMARY (FROM: 2021-01-01 TO 2024-11-25)
+            </h2>
+            <div className="grid grid-cols-2 gap-4">
+              {/* Left Side Tables */}
+              <div className="space-y-4">
+                {/* Table 1 */}
+                <table className="table-auto w-[200px] border-collapse border border-gray-300">
+                  <thead>
+                    <tr className="bg-gray-200">
+                      <th className="border px-4 py-2 text-left">
+                        Description
+                      </th>
+                      <th className="border px-4 py-2 text-center">Total</th>
+                      <th className="border px-4 py-2 text-center">Taken</th>
+                      <th className="border px-4 py-2 text-center">%</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border px-4 py-2">Annual Leave</td>
+                      <td className="border px-4 py-2 text-center">14</td>
+                      <td className="border px-4 py-2 text-center">11</td>
+                      <td className="border px-4 py-2 text-center">79%</td>
+                    </tr>
+                    <tr>
+                      <td className="border px-4 py-2">Casual Leave</td>
+                      <td className="border px-4 py-2 text-center">7</td>
+                      <td className="border px-4 py-2 text-center">5</td>
+                      <td className="border px-4 py-2 text-center">71%</td>
+                    </tr>
+                    <tr>
+                      <td className="border px-4 py-2">Sick Leave</td>
+                      <td className="border px-4 py-2 text-center">21</td>
+                      <td className="border px-4 py-2 text-center">5</td>
+                      <td className="border px-4 py-2 text-center">24%</td>
+                    </tr>
+                  </tbody>
+                </table>
 
-  {/* Additional Summary */}
-  <div className="grid grid-cols-3 gap-4 mt-4">
-    {/* Short Leave Taken */}
-    <table className="table-auto border-collapse border border-gray-300">
-      <thead>
-        <tr className="bg-gray-200">
-          <th className="border border-gray-300 px-4 py-2 text-left">Short Leave Taken</th>
-          <th className="border border-gray-300 px-4 py-2 text-center">Total</th>
-          <th className="border border-gray-300 px-4 py-2 text-center">Taken</th>
-          <th className="border border-gray-300 px-4 py-2 text-center">%</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td className="border border-gray-300 px-4 py-2">Short Leave</td>
-          <td className="border border-gray-300 px-4 py-2 text-center">24</td>
-          <td className="border border-gray-300 px-4 py-2 text-center">14</td>
-          <td className="border border-gray-300 px-4 py-2 text-center">58%</td>
-        </tr>
-      </tbody>
-    </table>
+                {/* Table 2 */}
+                <table className="table-auto border-collapse border border-gray-300">
+                  <thead>
+                    <tr className="bg-gray-200">
+                      <th className="border px-4 py-2 text-left">Leave Type</th>
+                      <th className="border px-4 py-2 text-center">Days</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border px-4 py-2">Nopay</td>
+                      <td className="border px-4 py-2 text-center">1</td>
+                    </tr>
+                    <tr>
+                      <td className="border px-4 py-2">Not Entered</td>
+                      <td className="border px-4 py-2 text-center">1</td>
+                    </tr>
+                  </tbody>
+                </table>
 
-    {/* Late Occasions */}
-    <table className="table-auto border-collapse border border-gray-300">
-      <thead>
-        <tr className="bg-gray-200">
-          <th className="border border-gray-300 px-4 py-2 text-left">Late Occasions</th>
-          <th className="border border-gray-300 px-4 py-2 text-center">Days</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td className="border border-gray-300 px-4 py-2">Late Occasions</td>
-          <td className="border border-gray-300 px-4 py-2 text-center">13</td>
-        </tr>
-      </tbody>
-    </table>
+                {/* Table 3 */}
+                <table className="table-auto border-collapse border border-gray-300">
+                  <thead>
+                    <tr className="bg-gray-200">
+                      <th className="border px-4 py-2 text-left"></th>
+                      <th className="border px-4 py-2 text-left">Total</th>
+                      <th className="border px-4 py-2 text-center">Taken</th>
+                      <th className="border px-4 py-2 text-center">%</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border px-4 py-2">Short Leave Taken</td>
+                      <td className="border px-4 py-2 text-center">24</td>
+                      <td className="border px-4 py-2 text-center">24</td>
+                      <td className="border px-4 py-2 text-center">58%</td>
+                    </tr>
+                  </tbody>
+                </table>
 
-    {/* Extra Hours */}
-    <table className="table-auto border-collapse border border-gray-300">
-      <thead>
-        <tr className="bg-gray-200">
-          <th className="border border-gray-300 px-4 py-2 text-left">Extra Hours / Normal Hours</th>
-          <th className="border border-gray-300 px-4 py-2 text-center">%</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td className="border border-gray-300 px-4 py-2">Percentage</td>
-          <td className="border border-gray-300 px-4 py-2 text-center">20%</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+                {/* Table 4 */}
+                <table className="table-auto border-collapse border border-gray-300">
+                  <thead>
+                    <tr className="bg-gray-200">
+                      <th className="border px-4 py-2 text-left"></th>
+                      <th className="border px-4 py-2 text-center">Days</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border px-4 py-2">Late Occasions</td>
+                      <td className="border px-4 py-2 text-center">13</td>
+                    </tr>
+                  </tbody>
+                </table>
 
-  {/* Final Score */}
-  <div className="mt-4">
-    <p>
-      <strong>Total Score:</strong> 8 / 15
-    </p>
-  </div>
-</div>
+                {/* Table 5 */}
+                <table className="table-auto border-collapse border border-gray-300">
+                  <thead>
+                    <tr className="bg-gray-200">
+                      <th className="border px-4 py-2 text-left"></th>
+                      <th className="border px-4 py-2 text-center">%</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border px-4 py-2">
+                        Extra Hours/Normal Hours
+                      </td>
+                      <td className="border px-4 py-2 text-center">20</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Right Side Tables */}
+              <div className="space-y-4">
+                {/* Table 6 */}
+                <table className="table-auto w-[200px] border-collapse border border-gray-300">
+                  <thead>
+                    <tr className="bg-gray-200">
+                      <th className="border px-4 py-2 text-left">
+                        Actual Score
+                      </th>
+                      <th className="border px-4 py-2 text-center">
+                        Alocated Max Score
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td
+                        className="border px-4 py-2"
+                        style={{ backgroundColor: "rgb(253, 242, 233)" }}
+                      >
+                        2
+                      </td>
+                      <td className="border px-4 py-2 text-center">4</td>
+                    </tr>
+                    <tr>
+                      <td
+                        className="border px-4 py-2"
+                        style={{ backgroundColor: "rgb(253, 242, 233)" }}
+                      >
+                        1
+                      </td>
+                      <td className="border px-4 py-2 text-center">2</td>
+                    </tr>
+                    <tr>
+                      <td
+                        className="border px-4 py-2"
+                        style={{ backgroundColor: "rgb(253, 242, 233)" }}
+                      >
+                        1
+                      </td>
+                      <td className="border px-4 py-2 text-center">1</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                {/* Table 7 */}
+                <div className="relative pt-8">
+                  <table className="table-auto w-[200px] border-collapse border border-gray-300">
+                    <thead></thead>
+                    <tbody>
+                      <tr>
+                        <td
+                          className="border px-4 py-2"
+                          style={{ backgroundColor: "rgb(253, 242, 233)" }}
+                        >
+                          0
+                        </td>
+                        <td className="border px-4 py-2 text-center">2</td>
+                      </tr>
+                      <tr>
+                        <td
+                          className="border px-4 py-2"
+                          style={{ backgroundColor: "rgb(253, 242, 233)" }}
+                        >
+                          0
+                        </td>
+                        <td className="border px-4 py-2 text-center">1</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="relative pt-10">
+                  {/* Table 8 */}
+                  <table className="table-auto w-[200px] border-collapse border border-gray-300 mb-6">
+                    <thead></thead>
+                    <tbody>
+                      <tr>
+                        <td
+                          className="border px-4 py-2"
+                          style={{ backgroundColor: "rgb(253, 242, 233)" }}
+                        >
+                          1
+                        </td>
+                        <td className="border px-4 py-2 text-center">2</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                {/* Table 9 */}
+                <div className="relative pt-10">
+                  <table className="table-auto w-[200px] border-collapse border border-gray-300">
+                    <thead></thead>
+                    <tbody>
+                      <tr>
+                        <td
+                          className="border px-4 py-2"
+                          style={{ backgroundColor: "rgb(253, 242, 233)" }}
+                        >
+                          0
+                        </td>
+                        <td className="border px-4 py-2 text-center">1</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Table 10 */}
+                <div className="relative pt-10">
+                  <table className="table-auto w-[200px] border-collapse border border-gray-300">
+                    <thead></thead>
+                    <tbody>
+                      <tr>
+                        <td
+                          className="border px-4 py-2"
+                          style={{ backgroundColor: "rgb(253, 242, 233)" }}
+                        >
+                          2
+                        </td>
+                        <td className="border px-4 py-2 text-center">2</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div className="text-right">
+                  <strong>Total Actual Score: 7</strong>
+                  <br />
+                  <strong>Total Allocated Max Score: 15</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
 
           {/* Disciplinary Actions Section */}
           <div className="p-6 rounded-lg shadow-md">
@@ -860,12 +1020,17 @@ const HRAspectsModal = ({ closePopup, toggleModal }) => {
           </div>
         </div>
         {/* Close Button */}
-        <button
-          className="mt-6 bg-red-500 text-white px-4 py-2 rounded"
-          onClick={closePopup}
-        >
-          Close
-        </button>
+        <div className="flex mt-6">
+          <button className="bg-blue-500 text-white px-4 py-2 rounded mr-2">
+            Save
+          </button>
+          <button
+            className="bg-red-500 text-white px-4 py-2 rounded"
+            onClick={closePopup}
+          >
+            Close
+          </button>
+        </div>
       </div>
     </div>
   );
